@@ -83,7 +83,7 @@ footer {
     list-style-type: none;
     display: flex; }
 
-/* --------------MAIN / SECTIONS-------------- */
+/* --------------MAIN / SECTIONS / ASIDE-------------- */
 .index__main {
   display: grid;
   grid-template-columns: 9.375em 1fr;
@@ -92,13 +92,17 @@ footer {
   grid-area: main; }
   .index__main .main__aside {
     background-color: #ffffff;
-    grid-area: aside; }
+    grid-area: aside;
+    border-top: 1px solid #dedede; }
     .index__main .main__aside .aside__lista {
       padding: 7.5em 0 0 0;
       list-style-type: none;
       display: flex;
       flex-direction: column;
-      align-items: center; }
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 900; }
     .index__main .main__aside .aside__item {
       padding-top: 1.25em; }
   .index__main #carouselIndex {
@@ -125,7 +129,8 @@ footer {
       padding: 1.25em;
       transition: all 0.1s;
       width: 18.75em;
-      height: 21.87em; }
+      height: 21.87em;
+      border-radius: 4px; }
       .index__main .index__section .section__article .article__imagen {
         height: 15.625em;
         width: 15.625em;
@@ -150,6 +155,7 @@ footer {
     .articulo__main .main__section .section__grid {
       padding: 3.125em;
       background-color: white;
+      border-radius: 5px;
       align-items: center;
       display: grid;
       grid-template-columns: max-content max-content max-content;
@@ -248,6 +254,7 @@ footer {
         width: 18.75em;
         height: 18.75em;
         background-color: white;
+        border-radius: 4px;
         justify-content: center;
         align-items: center; }
         .marcas__main .main__section .section__grid .grid__cardMarca .cardMarca__logoImg {
@@ -273,7 +280,10 @@ footer {
       list-style-type: none;
       display: flex;
       flex-direction: column;
-      align-items: center; }
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 900; }
     .marca__main .main__aside .aside__item {
       padding-top: 1.25em; }
   .marca__main .main__section {
@@ -288,12 +298,13 @@ footer {
       display: grid;
       width: max-content;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      grid-template-areas: "article article article" "article article article" "article article article";
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: "article article article" "article article article";
       grid-column-gap: 0.43em;
       grid-row-gap: 0.43em; }
     .marca__main .main__section .grid__article {
       background-color: white;
+      border-radius: 4px;
       padding: 1.25em;
       transition: all 0.1s;
       width: 18.75em;
@@ -336,23 +347,29 @@ footer {
         width: 100%;
         height: max-content;
         background-color: white;
-        grid-template-columns: 230px 350px 230px 190px;
+        grid-template-columns: 14.375rem 21.875rem 10rem 10rem 10.625rem;
         grid-template-rows: max-content;
-        grid-template-areas: "Img Datos Select Cancel";
+        grid-template-areas: "Img Datos Select Subtotal Cancel";
         align-items: center; }
-        .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__cancel {
-          display: flex;
-          width: 100%;
-          height: 100%;
-          justify-content: center;
-          align-items: center; }
-          .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__cancel .cardArticulo__icono {
-            grid-area: Cancel; }
         .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__Img {
           height: 12.5em;
           width: 12.5em;
           grid-area: Img;
-          padding-left: 15px; }
+          padding-left: 0.937rem; }
+        .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__datos {
+          display: flex;
+          flex-direction: column;
+          align-content: left;
+          grid-area: Datos; }
+          .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__datos .article__nombre {
+            flex-wrap: wrap;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+            font-size: 18px;
+            grid-area: Datos; }
+          .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__datos .article__precio {
+            font-size: 16px;
+            margin: 0; }
         .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__select {
           width: 100%;
           height: 100%;
@@ -362,7 +379,7 @@ footer {
           justify-content: center;
           align-items: end; }
           .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__select .form-select {
-            width: 70px;
+            width: 4.375rem;
             margin: 0 0 0 5px; }
           .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__select .select__talle {
             display: flex;
@@ -371,22 +388,39 @@ footer {
           .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__select .select__cantidad {
             display: flex;
             align-items: center; }
-        .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__datos {
+        .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__subtotal {
+          grid-area: Subtotal;
           display: flex;
-          flex-direction: column;
-          align-content: left;
-          grid-area: Datos; }
-          .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__datos .article__nombre {
-            margin: 0 0 10px 0;
-            font-weight: bold;
-            font-size: 18px;
-            grid-area: Datos; }
-          .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__datos .article__precio {
-            font-size: 16px;
+          flex-wrap: wrap;
+          width: 100%;
+          height: 100%;
+          justify-content: end;
+          align-items: center; }
+          .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__subtotal p {
             margin: 0; }
-        .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__icono {
-          width: 20px;
-          grid-area: Cancel; }
+        .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__cancel {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          justify-content: center;
+          align-items: center; }
+          .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__cancel .cardArticulo__icono {
+            grid-area: Cancel;
+            width: 1.25rem; }
+      .carrito__main .main__section .section__grid .grid__submit {
+        width: 100%;
+        height: max-content;
+        display: flex;
+        justify-content: end; }
+        .carrito__main .main__section .section__grid .grid__submit .submit__card {
+          background-color: white;
+          display: flex;
+          padding: 10px;
+          align-items: center;
+          border-radius: 5px; }
+          .carrito__main .main__section .section__grid .grid__submit .submit__card .submit__total {
+            padding-right: 1.25rem;
+            margin: 0; }
 
 .contacto__section, .signUp__section, .login__section {
   background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
@@ -398,7 +432,8 @@ form {
   width: 22em;
   margin: 1.25em 0 1.25em 0;
   padding: 0.62em 0.62em 0.62em 0.62em;
-  background-color: white; }
+  background-color: white;
+  border-radius: 4px; }
 
 /* --------------MEDIAS QUERIES-------------- */
 @media only screen and (max-width: 1200px) {

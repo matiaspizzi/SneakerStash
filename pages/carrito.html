@@ -22,7 +22,9 @@
     
     <!-- INICIO HEADER -->
     <header>
-        <a href="../index.html"><img src="../Multimedia/logo.png" class="header__logo" id="logo" alt="logo sneaker stash"></a>
+        <a href="../index.html">
+            <img src="../Multimedia/logo.png" class="header__logo" id="logo" alt="logo sneaker stash">
+        </a>
     </header>
 
     
@@ -30,7 +32,9 @@
     <nav>
         <ul class="nav__lista">
             <li class="nav__item">
-                <a href="../index.html"><img src="../Multimedia/iconos/house.png" class="nav__icono" alt="icono inicio"> </a>
+                <a href="../index.html">
+                    <img src="../Multimedia/iconos/house.png" class="nav__icono" alt="icono inicio"> 
+                </a>
             </li>
             <li class="nav__item">
                 <input type="text" name="Buscador" placeholder="Buscar" class="nav__buscador">
@@ -39,16 +43,19 @@
                 <a href="../pages/marcas.html">Marcas</a>
             </li>
             <li class="nav__item">
-                <p>Colecciones</p>
+                <a href="carrito.html">
+                    <img src="../Multimedia/iconos/cart.png" class="nav__icono" alt="icono carrito"> 
+                </a>
             </li>
             <li class="nav__item">
-                <a href="/pages/carrito.html"><img src="../Multimedia/iconos/cart.png" class="nav__icono" alt="icono carrito"> </a>
+                <a href="">
+                    <img src="../Multimedia/iconos/heart.png" class="nav__icono" alt="icono favoritos"> 
+                </a>
             </li>
             <li class="nav__item">
-                <a href=""><img src="../Multimedia/iconos/heart.png" class="nav__icono" alt="icono favoritos"> </a>
-            </li>
-            <li class="nav__item">
-                <a href="../pages/login.html"><img src="../Multimedia/iconos/user.png" class="nav__icono" alt="icono usuario"> </a>
+                <a href="../pages/login.html">
+                    <img src="../Multimedia/iconos/user.png" class="nav__icono" alt="icono usuario"> 
+                </a>
             </li>
         </ul>
     </nav>
@@ -58,46 +65,6 @@
     <main class="carrito__main">
         <section class="main__section">
             <div class="section__grid">
-                <div class="grid__cardArticulo">
-                    <a href="marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
-                        <img src="../Multimedia/marcas/Adidas/NiceKicksxUltraBoostNoVacancy/imagen1.jpg" class="cardArticulo__Img" alt="Logo Adidas"> 
-                    </a>
-
-                    <div class="cardArticulo__datos">
-                        <h2 class="article__nombre">Nice Kicks x Ultra Boost No Vacancy</h2>
-                        <p class="article__precio">Precio</p>
-                    </div>
-
-                    
-                    <div class="cardArticulo__select">
-                        <div class="select__talle">
-                            <label for="talle">Talle: </label>
-                            <select name="talle" id="talle" class="form-select">
-                                <option value="L">L</option>
-                                <option value="M">M</option>
-                                <option value="S">S</option>
-                            </select>
-                        </div>
-
-                        <div class="select__cantidad">
-                            <label for="cantidad">Cantidad: </label>
-                            <select name="cantidad" id="cantidad" class="form-select">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="cardArticulo__cancel">
-                        <button type="button" class="btn btn-outline-light">Eliminar <img src="/Multimedia/iconos/cruz.png" class="cardArticulo__icono" alt="icono cruz"></button>
-                    </div>
-                </div>
-
-
-
                 <div class="grid__cardArticulo">
                     <a href="marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="../Multimedia/marcas/AirJordan/AirJordan1RetroHighOGShadow2-0/imagen1.jpg" class="cardArticulo__Img" alt="Logo Jordan"> 
@@ -128,6 +95,10 @@
                                 <option value="5">5</option>
                             </select>
                         </div>
+                    </div>
+
+                    <div class="cardArticulo__subtotal">
+                        <p>Subtotal: 0.0$</p>
                     </div>
 
                     <div class="cardArticulo__cancel">
@@ -169,6 +140,10 @@
                         </div>
                     </div>
 
+                    <div class="cardArticulo__subtotal">
+                        <p>Subtotal: 0.0$</p>
+                    </div>
+
                     <div class="cardArticulo__cancel">
                         <button type="button" class="btn btn-outline-light">Eliminar <img src="/Multimedia/iconos/cruz.png" class="cardArticulo__icono" alt="icono cruz"></button>
                     </div>
@@ -208,8 +183,19 @@
                         </div>
                     </div>
 
+                    <div class="cardArticulo__subtotal">
+                        <p>Subtotal: 0.0$</p>
+                    </div>
+
                     <div class="cardArticulo__cancel">
                         <button type="button" class="btn btn-outline-light">Eliminar <img src="/Multimedia/iconos/cruz.png" class="cardArticulo__icono" alt="icono cruz"></button>
+                    </div>
+                </div>
+
+                <div class="grid__submit">
+                    <div class="submit__card">
+                        <p class="submit__total">Total: 0.0$</p>
+                        <button type="button" class="btn btn-outline-success">Comprar</button>
                     </div>
                 </div>
             </div>
