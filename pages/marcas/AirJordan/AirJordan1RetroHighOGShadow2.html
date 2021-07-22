@@ -29,13 +29,27 @@
     <!-- INICIO NAV -->
     <nav>
         <ul class="nav__lista">
-            <li class="nav__item"><a href="../../../index.html"><img src="../../../Multimedia/iconos/house.png" class="nav__icono" alt="icono inicio"> </a></li>
-            <li class="nav__item"><input type="text" name="Buscador" placeholder="Buscar" class="nav__buscador"></li>
-            <li class="nav__item"><a href="../../../pages/marcas.html">Marcas</a></li>
-            <li class="nav__item"><a href="">Colecciones</a></li>
-            <li class="nav__item"><a href=""><img src="../../../Multimedia/iconos/cart.png" class="nav__icono" alt="icono carrito"> </a></li>
-            <li class="nav__item"><a href=""><img src="../../../Multimedia/iconos//heart.png" class="nav__icono" alt="icono favoritos"> </a></li>
-            <li class="nav__item"><a href="../../../pages/login.html"><img src="../../../Multimedia/iconos/user.png" class="nav__icono" alt="icono usuario"> </a></li>
+            <li class="nav__item">
+                <a href="../../../index.html"><img src="../../../Multimedia/iconos/house.png" class="nav__icono" alt="icono inicio"> </a>
+            </li>
+            <li class="nav__item">
+                <input type="text" name="Buscador" placeholder="Buscar" class="nav__buscador">
+            </li>
+            <li class="nav__item">
+                <a href="../../../pages/marcas.html">Marcas</a>
+            </li>
+            <li class="nav__item">
+                <a href="">Colecciones</a>
+            </li>
+            <li class="nav__item">
+                <a href=""><img src="../../../Multimedia/iconos/cart.png" class="nav__icono" alt="icono carrito"></a>
+            </li>
+            <li class="nav__item">
+                <a href=""><img src="../../../Multimedia/iconos//heart.png" class="nav__icono" alt="icono favoritos"></a>
+            </li>
+            <li class="nav__item">
+                <a href="../../../pages/login.html"><img src="../../../Multimedia/iconos/user.png" class="nav__icono" alt="icono usuario"></a>
+            </li>
         </ul>
     </nav>   
 
@@ -50,17 +64,15 @@
                     <img src="../../../Multimedia/marcas/AirJordan/AirJordan1RetroHighOGShadow2-0/imagen4.jpg" class="imgSecundarias__secundaria" alt="Air Jordan 1 Retro High OG 'Shadow 2.0'">
                 </div>
 
-                
                 <img src="../../../Multimedia/marcas/AirJordan/AirJordan1RetroHighOGShadow2-0/imagen1.jpg" class="grid__imgPrincipal" alt="Air Jordan 1 Retro High OG 'Shadow 2.0'">
                 
-
                 <div class="grid__datos">
                     <h2>Air Jordan 1 Retro High OG 'Shadow 2.0'</h2>
 
                     <p class="datos__precio">$20.000</p>
 
-                    <div>
-                        <button type="button" class="btn btn-outline-primary">Agregar a Favoritos</button>
+                    <div class="datos__button">
+                        <button type="button" class="btn btn-outline-light"><img src="../../../Multimedia/iconos/heart.png" id="button__heart" alt="icono favoritos"> Agregar a favoritos</button>
                     </div>
 
                     <div class="datos__descripcion">
@@ -74,9 +86,9 @@
                     <div class="datos__selects">
                         <label for="talle">Talle:</label>
                         <select name="talle" id="talle" class="form-select">
-                            <option value="L">Large</option>
-                            <option value="M">Medium</option>
-                            <option value="S">Small</option>
+                            <option value="L">L</option>
+                            <option value="M">M</option>
+                            <option value="S">S</option>
                         </select>
                     
                         <label for="cantidad">Cantidad:</label>
@@ -91,7 +103,7 @@
 
                     <div class="datos__inputs">
                         <button type="button" class="btn btn-outline-success">Comprar</button>
-                        <button type="button" class="btn btn-outline-secondary">Agregar al carrito</button>
+                        <button type="button" class="btn btn-outline-light"><img src="../../../Multimedia/iconos/cart.png" id="button__cart" alt="icono carrito"> Agregar al carrito</button>
                     </div>
                 </div>
             </div>
@@ -102,9 +114,17 @@
     <!-- INICIO FOOTER -->
     <footer class="footer">
         <ul class="footer__lista">
-            <li class="footer__item"><a href="">Terminos y Condiciones</a></li>
-            <li class="footer__item"><a href="">Avisos legales</a></li>
-            <li class="footer__item"><a href="contacto.html">Contacto</a></li>
+            <li class="footer__item">
+                <a href="">Terminos y Condiciones</a>
+            </li>
+
+            <li class="footer__item">
+                <a href="">Avisos legales</a>
+            </li>
+
+            <li class="footer__item">
+                <a href="contacto.html">Contacto</a>
+            </li>
         </ul>
     </footer>
 

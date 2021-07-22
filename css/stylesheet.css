@@ -71,7 +71,7 @@ footer {
   background-color: #ffffff;
   border-top: 1px solid #dedede;
   grid-area: footer;
-  height: 1.87em;
+  max-height: 1.87em;
   justify-content: space-evenly;
   bottom: 0; }
   footer a {
@@ -84,23 +84,15 @@ footer {
     display: flex; }
 
 /* --------------MAIN / SECTIONS-------------- */
-section {
-  grid-area: section;
-  width: 100%; }
-
 .index__main {
   display: grid;
-  grid-template-columns: 9.375em 9fr;
+  grid-template-columns: 9.375em 1fr;
   grid-template-rows: max-content max-content;
-  grid-template-areas: "carousel carousel" "aside section";
+  grid-template-areas: "carousel carousel"  "aside section";
   grid-area: main; }
-  .index__main #carouselIndex {
-    grid-area: carousel; }
   .index__main .main__aside {
     background-color: #ffffff;
-    display: inline-block;
-    grid-area: aside;
-    border-top: 1px solid #dedede; }
+    grid-area: aside; }
     .index__main .main__aside .aside__lista {
       padding: 7.5em 0 0 0;
       list-style-type: none;
@@ -109,11 +101,14 @@ section {
       align-items: center; }
     .index__main .main__aside .aside__item {
       padding-top: 1.25em; }
+  .index__main #carouselIndex {
+    grid-area: carousel; }
   .index__main .index__section {
     background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
     display: flex;
     justify-content: center;
-    text-align: center; }
+    text-align: center;
+    grid-area: section; }
     .index__main .index__section .section__grid {
       align-content: center;
       align-items: center;
@@ -122,7 +117,7 @@ section {
       width: max-content;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
-      grid-template-areas: "article article article" "article article article" "article article article";
+      grid-template-areas: "article article article"  "article article article"  "article article article";
       grid-column-gap: 0.43em;
       grid-row-gap: 0.43em; }
     .index__main .index__section .section__article {
@@ -130,7 +125,7 @@ section {
       padding: 1.25em;
       transition: all 0.1s;
       width: 18.75em;
-      height: 21.875em; }
+      height: 21.87em; }
       .index__main .index__section .section__article .article__imagen {
         height: 15.625em;
         width: 15.625em;
@@ -201,28 +196,32 @@ section {
           font-weight: bold;
           grid-area: precio; }
         .articulo__main .main__section .section__grid .grid__datos .datos__descripcion {
-          width: 33.125em;
+          width: 33rem;
           font-size: 13px;
           text-align: justify;
           color: #2e2e2e;
-          grid-area: descripcion;
-          padding-bottom: 0.62em;
-          border-bottom: 1px solid #dedede; }
+          grid-area: descripcion; }
         .articulo__main .main__section .section__grid .grid__datos .datos__selects {
           display: flex;
           font-size: 1.062em;
           grid-area: selectores;
           width: 100%;
           justify-content: space-around;
-          align-items: center; }
+          align-items: center;
+          padding-top: 0.93rem;
+          border-top: 1px solid #dedede; }
           .articulo__main .main__section .section__grid .grid__datos .datos__selects .form-select {
             width: max-content; }
+        .articulo__main .main__section .section__grid .grid__datos .datos__button .btn #button__heart {
+          width: 1em; }
         .articulo__main .main__section .section__grid .grid__datos .datos__inputs {
           grid-area: botones;
           display: flex;
           width: 100%; }
           .articulo__main .main__section .section__grid .grid__datos .datos__inputs .btn {
             margin-right: 0.62em; }
+            .articulo__main .main__section .section__grid .grid__datos .datos__inputs .btn #button__cart {
+              width: 1em; }
 
 .marcas__main {
   background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
@@ -240,8 +239,8 @@ section {
       display: grid;
       width: max-content;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      grid-template-areas: "Marca Marca Marca" "Marca Marca Marca" "Marca Marca Marca";
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: "Marca Marca Marca" "Marca Marca Marca";
       grid-column-gap: 0.625em;
       grid-row-gap: 0.625em; }
       .marcas__main .main__section .section__grid .grid__cardMarca {
@@ -254,6 +253,10 @@ section {
         .marcas__main .main__section .section__grid .grid__cardMarca .cardMarca__logoImg {
           height: 11.25em;
           width: 11.25em; }
+      .marcas__main .main__section .section__grid .grid__cardMarca:hover {
+        transition: all 0.1s;
+        transform: scale(1.05);
+        border: 1px solid #a1a1a1; }
 
 .marca__main {
   display: grid;
@@ -306,6 +309,84 @@ section {
       .marca__main .main__section .grid__article:hover {
         transform: scale(1.05);
         border: 1px solid #a1a1a1; }
+
+.carrito__main {
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  width: 100%;
+  height: 100%; }
+  .carrito__main .main__section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; }
+    .carrito__main .main__section .section__grid {
+      align-content: center;
+      align-items: center;
+      margin: 1.25em;
+      display: grid;
+      width: max-content;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-template-areas: "Articulo" "Articulo" "Articulo" "Articulo";
+      grid-column-gap: 0.625em;
+      grid-row-gap: 0.625em; }
+      .carrito__main .main__section .section__grid .grid__cardArticulo {
+        border-radius: 5px;
+        display: grid;
+        width: 100%;
+        height: max-content;
+        background-color: white;
+        grid-template-columns: 230px 350px 230px 190px;
+        grid-template-rows: max-content;
+        grid-template-areas: "Img Datos Select Cancel";
+        align-items: center; }
+        .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__cancel {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          justify-content: center;
+          align-items: center; }
+          .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__cancel .cardArticulo__icono {
+            grid-area: Cancel; }
+        .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__Img {
+          height: 12.5em;
+          width: 12.5em;
+          grid-area: Img;
+          padding-left: 15px; }
+        .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__select {
+          width: 100%;
+          height: 100%;
+          grid-area: Select;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: end; }
+          .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__select .form-select {
+            width: 70px;
+            margin: 0 0 0 5px; }
+          .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__select .select__talle {
+            display: flex;
+            align-items: center;
+            margin: 0 0 10px 0; }
+          .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__select .select__cantidad {
+            display: flex;
+            align-items: center; }
+        .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__datos {
+          display: flex;
+          flex-direction: column;
+          align-content: left;
+          grid-area: Datos; }
+          .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__datos .article__nombre {
+            margin: 0 0 10px 0;
+            font-weight: bold;
+            font-size: 18px;
+            grid-area: Datos; }
+          .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__datos .article__precio {
+            font-size: 16px;
+            margin: 0; }
+        .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__icono {
+          width: 20px;
+          grid-area: Cancel; }
 
 .contacto__section, .signUp__section, .login__section {
   background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
