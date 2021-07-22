@@ -359,7 +359,6 @@ footer {
         .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__datos {
           display: flex;
           flex-direction: column;
-          align-content: left;
           grid-area: Datos; }
           .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__datos .article__nombre {
             flex-wrap: wrap;
@@ -377,7 +376,7 @@ footer {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: end; }
+          align-items: flex-end; }
           .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__select .form-select {
             width: 4.375rem;
             margin: 0 0 0 5px; }
@@ -394,7 +393,7 @@ footer {
           flex-wrap: wrap;
           width: 100%;
           height: 100%;
-          justify-content: end;
+          justify-content: flex-end;
           align-items: center; }
           .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__subtotal p {
             margin: 0; }
@@ -411,7 +410,7 @@ footer {
         width: 100%;
         height: max-content;
         display: flex;
-        justify-content: end; }
+        justify-content: flex-end; }
         .carrito__main .main__section .section__grid .grid__submit .submit__card {
           background-color: white;
           display: flex;
