@@ -22,8 +22,20 @@
 
     <!-- INICIO HEADER -->
     <header>
-        <a href="index.html"><img src="Multimedia/logo.png" class="header__logo" id="logo" alt="logo sneaker stash"></a>
+        <div class="header__logo">
+            <a href="index.html"><img src="Multimedia/logo.png" class="logo__img" alt="logo sneaker stash"></a>
+        </div>
+
+        <div class="header__social">
+            <div class="social__container">
+                <a href=""><img src="Multimedia/iconos/whatsapp-brands.svg" class="container__icono" alt=""></a>
+                <a href=""><img src="Multimedia/iconos/facebook-square-brands.svg" class="container__icono" alt=""></a>
+                <a href=""><img src="Multimedia/iconos/instagram-brands.svg" class="container__icono" alt=""></a>
+            </div>
+        </div>
     </header>
+
+
 
     
     <!-- INICIO NAV -->
@@ -31,7 +43,7 @@
         <ul class="nav__lista">
             <li class="nav__item">
                 <a href="index.html">
-                    <img src="Multimedia/iconos/house.png" class="nav__icono" alt="icono inicio"> 
+                    <img src="Multimedia/iconos/home-solid.svg" class="nav__icono" alt="icono inicio"> 
                 </a>
             </li>
             <li class="nav__item">
@@ -42,17 +54,17 @@
             </li>
             <li class="nav__item">
                 <a href="pages/carrito.html">
-                    <img src="Multimedia/iconos/cart.png" class="nav__icono" alt="icono carrito"> 
+                    <img src="Multimedia/iconos/shopping-cart-solid.svg" class="nav__icono" alt="icono carrito"> 
                 </a>
             </li>
             <li class="nav__item">
                 <a href="">
-                    <img src="Multimedia/iconos/heart.png" class="nav__icono" alt="icono favoritos"> 
+                    <img src="Multimedia/iconos/heart-solid.svg" class="nav__icono" alt="icono favoritos"> 
                 </a>
             </li>
             <li class="nav__item">
                 <a href="pages/login.html">
-                    <img src="Multimedia/iconos/user.png" class="nav__icono" alt="icono usuario"> 
+                    <img src="Multimedia/iconos/user-solid.svg" class="nav__icono" alt="icono usuario"> 
                 </a>
             </li>
         </ul>
@@ -65,16 +77,16 @@
         <aside class="main__aside">
             <ul class="aside__lista">
                 <li class="aside__item">
-                    <label for="Filtro1"><input type="checkbox" name="Filtro1" id="Filtro1"> Filtro 1 </label>
+                    <label for="Filtro1"><input type="checkbox" id="Filtro1"> Filtro 1 </label>
                 </li>
                 <li class="aside__item">
-                    <label for="Filtro2"><input type="checkbox" name="Filtro2" id="Filtro2"> Filtro 2 </label>
+                    <label for="Filtro2"><input type="checkbox" id="Filtro2"> Filtro 2 </label>
                 </li> 
                 <li class="aside__item">
-                    <label for="Filtro3"><input type="checkbox" name="Filtro3" id="Filtro3"> Filtro 3 </label>
+                    <label for="Filtro3"><input type="checkbox" id="Filtro3"> Filtro 3 </label>
                 </li>
                 <li class="aside__item">
-                    <label for="Filtro4"><input type="checkbox" name="Filtro4" id="Filtro4"> Filtro 4 </label>
+                    <label for="Filtro4"><input type="checkbox" id="Filtro4"> Filtro 4 </label>
                 </li>
             </ul>
         </aside>
@@ -280,17 +292,40 @@
     
     <!-- INICIO FOOTER -->
     <footer class="footer">
-        <ul class="footer__lista">
-            <li class="footer__item">
-                <a href="">Terminos y Condiciones</a>
-            </li>
-            <li class="footer__item">
-                <a href="">Avisos legales</a>
-            </li>
-            <li class="footer__item">
-                <a href="/pages/contacto.html">Contacto</a>
-            </li>
+
+    <div class="footer__centro">
+        <ul class="centro__lista">
+            <li><strong>Sneaker Stash</strong> </li>
+            <li><span>2021</span></li>
+            <li><small>Todos los derechos reservados</small></li>
         </ul>
+    </div>
+
+    <div class="footer__derecha">
+        <ul class="derecha__lista">
+            <li class="lista__item">
+                <a href="pages/contacto.html">
+                    <label for="iconContacto1"><img id="iconContacto1" class="iconContacto" src="Multimedia/iconos/envelope-regular.svg" alt=""> Contacto </label>
+                </a>
+            </li>
+            <li class="lista__item">
+                <a href="">
+                    <label for="iconContacto2"><img id="iconContacto2" class="iconContacto" src="Multimedia/iconos/phone-alt-solid.svg" alt=""> 0000-0000 </label>
+                </a>
+            </li>
+            <li class="lista__item">
+                <a href="">
+                    <label for="iconContacto3"><img id="iconContacto3" class="iconContacto" src="Multimedia/iconos/whatsapp-brands.svg" alt=""> 11 0000-0000 </label>
+                </a>
+            </li>
+            <li class="lista__item">
+                <a href="">
+                    <label for="iconContacto4"><img id="iconContacto4" class="iconContacto" src="Multimedia/iconos/envelope-regular.svg" alt=""> Email: info@sneakerstash.com.ar </label>
+                </a>
+            </li>
+
+        </ul>
+    </div>
     </footer>
 
 
