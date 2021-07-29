@@ -1,6 +1,6 @@
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   font-family: 'Ubuntu', sans-serif; }
 
 body {
@@ -20,7 +20,7 @@ body {
 /* --------------HEADER-------------- */
 header {
   border-bottom: 1px solid #dedede;
-  z-index: 900;
+  z-index: 1000;
   width: 100%;
   grid-area: header;
   background-color: white;
@@ -44,15 +44,17 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    grid-area: social;
-    transition: all 0.15s; }
+    grid-area: social; }
     header .header__social .social__container {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 12.5rem;
       height: 3.75rem;
-      border-bottom: 3px solid #dedede; }
+      border-bottom: 3px solid #dedede;
+      transition: all 0.65s; }
+      header .header__social .social__container:hover {
+        border-bottom: 3px solid #202020; }
       header .header__social .social__container .container__icono {
         width: 1.562rem;
         margin: 0 0.93rem 0 0.93rem;
@@ -62,6 +64,7 @@ header {
 
 /* --------------NAV-------------- */
 nav {
+  box-shadow: 0 10px 5px -10px rgba(0, 0, 0, 0.26);
   border-bottom: 1px solid #dedede;
   background-color: white;
   position: sticky;
@@ -71,10 +74,6 @@ nav {
   margin: 0;
   width: 100%;
   height: 4.375rem; }
-  nav .nav__buscador {
-    height: 1.562em;
-    width: 13.75em;
-    padding-left: 3px; }
   nav .nav__icono {
     height: 1em;
     transition: all 0.25s; }
@@ -95,11 +94,21 @@ nav {
       color: black;
       padding: 0.62em 0 0.62em 0;
       justify-items: center; }
-      nav .nav__lista .nav__item p {
-        margin: 0; }
+      nav .nav__lista .nav__item .nav__buscador {
+        padding: 4px;
+        border: 1px solid #dedede; }
+      nav .nav__lista .nav__item a p {
+        margin: 0;
+        border-bottom: 2px solid rgba(0, 0, 0, 0);
+        transition: all 0.45s; }
+        nav .nav__lista .nav__item a p:hover {
+          color: black;
+          border-bottom: 2px solid black; }
 
 /* --------------FOOTER-------------- */
 footer {
+  z-index: 900;
+  box-shadow: 0 -10px 5px -10px rgba(0, 0, 0, 0.26);
   grid-area: footer;
   background-color: #ffffff;
   border-top: 1px solid #dedede;
@@ -160,6 +169,8 @@ footer {
   grid-template-areas: "carousel carousel"  "aside section";
   grid-area: main; }
   .index__main .main__aside {
+    z-index: 850;
+    box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.26);
     background-color: #ffffff;
     grid-area: aside;
     border-top: 1px solid #dedede;
@@ -178,7 +189,9 @@ footer {
     .index__main .main__aside .aside__item {
       padding: 1.25em 0 1.25em 0; }
   .index__main #carouselIndex {
-    grid-area: carousel; }
+    box-shadow: 0 10px 5px -10px rgba(0, 0, 0, 0.26);
+    grid-area: carousel;
+    z-index: 800; }
   .index__main .index__section {
     background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
     display: flex;
@@ -197,6 +210,7 @@ footer {
       grid-column-gap: 0.43em;
       grid-row-gap: 0.43em; }
     .index__main .index__section .section__article {
+      box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
       background-color: white;
       padding: 1.25em;
       transition: all 0.1s;
@@ -212,8 +226,7 @@ footer {
         font-weight: bold;
         font-size: 14px; }
       .index__main .index__section .section__article:hover {
-        transform: scale(1.05);
-        border: 1px solid #a1a1a1; }
+        transform: scale(1.07); }
 
 .articulo__main {
   grid-area: main;
@@ -227,6 +240,7 @@ footer {
     .articulo__main .main__section .section__grid {
       padding: 3.125em;
       background-color: white;
+      box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
       border-radius: 5px;
       align-items: center;
       display: grid;
@@ -246,7 +260,7 @@ footer {
           transition: all 0.2s; }
           .articulo__main .main__section .section__grid .grid__imgSecundarias .imgSecundarias__secundaria:hover {
             transform: scale(2);
-            border: 1px solid #858585; }
+            box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26); }
       .articulo__main .main__section .section__grid .grid__imgPrincipal {
         display: flex;
         grid-area: princImg;
@@ -258,7 +272,6 @@ footer {
       .articulo__main .main__section .section__grid .grid__datos {
         padding: 1.25em;
         grid-area: datos;
-        background-color: white;
         height: 100%;
         display: grid;
         grid-template-columns: 33.12em;
@@ -313,7 +326,7 @@ footer {
     .marcas__main .main__section .section__grid {
       align-content: center;
       align-items: center;
-      margin: 1.25em;
+      margin: 1.87em;
       display: grid;
       width: max-content;
       grid-template-columns: 1fr 1fr 1fr;
@@ -325,17 +338,17 @@ footer {
         display: flex;
         width: 18.75em;
         height: 18.75em;
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
         background-color: white;
         border-radius: 4px;
         justify-content: center;
         align-items: center; }
         .marcas__main .main__section .section__grid .grid__cardMarca .cardMarca__logoImg {
           height: 11.25em;
-          width: 11.25em; }
-      .marcas__main .main__section .section__grid .grid__cardMarca:hover {
-        transition: all 0.1s;
-        transform: scale(1.05);
-        border: 1px solid #a1a1a1; }
+          width: 11.25em;
+          transition: all 0.3s; }
+          .marcas__main .main__section .section__grid .grid__cardMarca .cardMarca__logoImg:hover {
+            transform: scale(1.3); }
 
 .marca__main {
   display: grid;
@@ -377,6 +390,7 @@ footer {
     .marca__main .main__section .grid__article {
       background-color: white;
       border-radius: 4px;
+      box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
       padding: 1.25em;
       transition: all 0.1s;
       width: 18.75em;
@@ -390,8 +404,7 @@ footer {
         font-weight: bold;
         font-size: 14px; }
       .marca__main .main__section .grid__article:hover {
-        transform: scale(1.05);
-        border: 1px solid #a1a1a1; }
+        transform: scale(1.07); }
 
 .carrito__main {
   background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
@@ -419,6 +432,7 @@ footer {
         width: 100%;
         height: max-content;
         background-color: white;
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
         grid-template-columns: 14.375rem 21.875rem 10rem 10rem 10.625rem;
         grid-template-rows: max-content;
         grid-template-areas: "Img Datos Select Subtotal Cancel";
@@ -485,6 +499,7 @@ footer {
         justify-content: flex-end; }
         .carrito__main .main__section .section__grid .grid__submit .submit__card {
           background-color: white;
+          box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
           display: flex;
           padding: 10px;
           align-items: center;
@@ -510,6 +525,7 @@ footer {
 
 /* --------------FORM-------------- */
 .signUp__section .section__form, .login__section .section__form, .contacto__section .section__form {
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
   width: 34.375rem;
   margin: 2.5rem 0.625rem 2.5rem 0.625rem;
   padding: 1.25rem;
@@ -517,7 +533,7 @@ footer {
   border-radius: 4px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 3.125rem 7.5rem 7.5rem 7.5rem 4.375rem;
+  grid-template-rows: 3.125rem 7.5rem 7.5rem 7.5rem 7.5rem;
   grid-template-areas: "header" "topp"  "mid"  "bot" "submit"; }
   .signUp__section .section__form .form__header, .login__section .section__form .form__header, .contacto__section .section__form .form__header {
     width: 100%;
@@ -540,12 +556,18 @@ footer {
       width: 12.5rem;
       padding: 5px;
       border: 0;
-      border-bottom: 1px solid #dedede; }
+      border-bottom: 1px solid #dedede;
+      transition: all 0.45s; }
+      .signUp__section .section__form .form__top .top__nombre:hover, .login__section .section__form .form__top .top__nombre:hover, .contacto__section .section__form .form__top .top__nombre:hover {
+        border-bottom: 1px solid black; }
     .signUp__section .section__form .form__top .top__apellido, .login__section .section__form .form__top .top__apellido, .contacto__section .section__form .form__top .top__apellido {
       width: 12.5rem;
       padding: 5px;
       border: 0;
-      border-bottom: 1px solid #dedede; }
+      border-bottom: 1px solid #dedede;
+      transition: all 0.45s; }
+      .signUp__section .section__form .form__top .top__apellido:hover, .login__section .section__form .form__top .top__apellido:hover, .contacto__section .section__form .form__top .top__apellido:hover {
+        border-bottom: 1px solid black; }
   .signUp__section .section__form .form__mid, .login__section .section__form .form__mid, .contacto__section .section__form .form__mid {
     display: flex;
     grid-area: mid;
@@ -557,12 +579,18 @@ footer {
       width: 12.5rem;
       padding: 5px;
       border: 0;
-      border-bottom: 1px solid #dedede; }
+      border-bottom: 1px solid #dedede;
+      transition: all 0.45s; }
+      .signUp__section .section__form .form__mid .mid__email:hover, .login__section .section__form .form__mid .mid__email:hover, .contacto__section .section__form .form__mid .mid__email:hover {
+        border-bottom: 1px solid black; }
     .signUp__section .section__form .form__mid .mid__telefono, .login__section .section__form .form__mid .mid__telefono, .contacto__section .section__form .form__mid .mid__telefono {
       width: 12.5rem;
       padding: 5px;
       border: 0;
-      border-bottom: 1px solid #dedede; }
+      border-bottom: 1px solid #dedede;
+      transition: all 0.45s; }
+      .signUp__section .section__form .form__mid .mid__telefono:hover, .login__section .section__form .form__mid .mid__telefono:hover, .contacto__section .section__form .form__mid .mid__telefono:hover {
+        border-bottom: 1px solid black; }
   .signUp__section .section__form .form__bot, .login__section .section__form .form__bot, .contacto__section .section__form .form__bot {
     display: flex;
     grid-area: bot;
@@ -574,7 +602,10 @@ footer {
       width: 12.5rem;
       padding: 5px;
       border: 0;
-      border-bottom: 1px solid #dedede; }
+      border-bottom: 1px solid #dedede;
+      transition: all 0.75s; }
+      .signUp__section .section__form .form__bot .bot__contrasenia:hover, .login__section .section__form .form__bot .bot__contrasenia:hover, .contacto__section .section__form .form__bot .bot__contrasenia:hover {
+        border-bottom: 1px solid black; }
   .signUp__section .section__form .form__submit, .login__section .section__form .form__submit, .contacto__section .section__form .form__submit {
     display: flex;
     grid-area: submit;
@@ -592,7 +623,7 @@ footer {
       background-color: #aed581; }
 
 .login__section .section__form {
-  grid-template-rows: 3.125rem 7.5rem 7.5rem 4.375rem;
+  grid-template-rows: 3.125rem 7.5rem 7.5rem 7.5rem;
   grid-template-areas: "header" "mid"  "bot" "submit"; }
   .login__section .section__form .form__mid .mid__email {
     width: 21.875rem; }
@@ -614,7 +645,10 @@ footer {
     width: 28.4375rem;
     padding: 5px;
     border: 0;
-    border-bottom: 1px solid #dedede; }
+    border-bottom: 1px solid #dedede;
+    transition: all 0.75s; }
+    .contacto__section .section__form .form__bot .bot__mensaje:hover {
+      border-bottom: 1px solid black; }
   .contacto__section .section__form .form__submit .button {
     padding: 10px;
     width: max-content;
