@@ -498,7 +498,7 @@ footer {
   display: flex;
   justify-content: center; }
 
-.signUp__section, .login__section {
+.signUp__section, .login__section, .contacto__section {
   background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   display: flex;
   justify-content: center; }
@@ -509,162 +509,116 @@ footer {
   justify-content: center; }
 
 /* --------------FORM-------------- */
-.signUp__section .section__form, .login__section .section__form {
-  width: 550px;
-  margin: 40px 0 40px 0;
+.signUp__section .section__form, .login__section .section__form, .contacto__section .section__form {
+  width: 34.375rem;
+  margin: 2.5rem 0.625rem 2.5rem 0.625rem;
   padding: 1.25rem;
   background-color: white;
   border-radius: 4px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 120px 120px 120px 70px;
+  grid-template-rows: 3.125rem 7.5rem 7.5rem 7.5rem 4.375rem;
   grid-template-areas: "header" "topp"  "mid"  "bot" "submit"; }
-  .signUp__section .section__form .form__header, .login__section .section__form .form__header {
+  .signUp__section .section__form .form__header, .login__section .section__form .form__header, .contacto__section .section__form .form__header {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #9cc4fc; }
-    .signUp__section .section__form .form__header h3, .login__section .section__form .form__header h3 {
+    .signUp__section .section__form .form__header h3, .login__section .section__form .form__header h3, .contacto__section .section__form .form__header h3 {
       color: white;
       margin: 0; }
-  .signUp__section .section__form .form__top, .login__section .section__form .form__top {
+  .signUp__section .section__form .form__top, .login__section .section__form .form__top, .contacto__section .section__form .form__top {
     display: flex;
     grid-area: topp;
     width: 100%;
     height: 100%;
     justify-content: space-around;
     align-items: center; }
-    .signUp__section .section__form .form__top .top__nombre, .login__section .section__form .form__top .top__nombre {
-      width: 200px;
+    .signUp__section .section__form .form__top .top__nombre, .login__section .section__form .form__top .top__nombre, .contacto__section .section__form .form__top .top__nombre {
+      width: 12.5rem;
       padding: 5px;
       border: 0;
       border-bottom: 1px solid #dedede; }
-    .signUp__section .section__form .form__top .top__apellido, .login__section .section__form .form__top .top__apellido {
-      width: 200px;
+    .signUp__section .section__form .form__top .top__apellido, .login__section .section__form .form__top .top__apellido, .contacto__section .section__form .form__top .top__apellido {
+      width: 12.5rem;
       padding: 5px;
       border: 0;
       border-bottom: 1px solid #dedede; }
-  .signUp__section .section__form .form__mid, .login__section .section__form .form__mid {
+  .signUp__section .section__form .form__mid, .login__section .section__form .form__mid, .contacto__section .section__form .form__mid {
     display: flex;
     grid-area: mid;
     width: 100%;
     height: 100%;
     justify-content: space-around;
     align-items: center; }
-    .signUp__section .section__form .form__mid .mid__email, .login__section .section__form .form__mid .mid__email {
-      width: 200px;
+    .signUp__section .section__form .form__mid .mid__email, .login__section .section__form .form__mid .mid__email, .contacto__section .section__form .form__mid .mid__email {
+      width: 12.5rem;
       padding: 5px;
       border: 0;
       border-bottom: 1px solid #dedede; }
-    .signUp__section .section__form .form__mid .mid__telefono, .login__section .section__form .form__mid .mid__telefono {
-      width: 200px;
+    .signUp__section .section__form .form__mid .mid__telefono, .login__section .section__form .form__mid .mid__telefono, .contacto__section .section__form .form__mid .mid__telefono {
+      width: 12.5rem;
       padding: 5px;
       border: 0;
       border-bottom: 1px solid #dedede; }
-  .signUp__section .section__form .form__bot, .login__section .section__form .form__bot {
+  .signUp__section .section__form .form__bot, .login__section .section__form .form__bot, .contacto__section .section__form .form__bot {
     display: flex;
     grid-area: bot;
     width: 100%;
     height: 100%;
     justify-content: space-around;
     align-items: center; }
-    .signUp__section .section__form .form__bot .bot__contrasenia, .login__section .section__form .form__bot .bot__contrasenia {
-      width: 200px;
+    .signUp__section .section__form .form__bot .bot__contrasenia, .login__section .section__form .form__bot .bot__contrasenia, .contacto__section .section__form .form__bot .bot__contrasenia {
+      width: 12.5rem;
       padding: 5px;
       border: 0;
       border-bottom: 1px solid #dedede; }
-  .signUp__section .section__form .form__submit, .login__section .section__form .form__submit {
+  .signUp__section .section__form .form__submit, .login__section .section__form .form__submit, .contacto__section .section__form .form__submit {
     display: flex;
     grid-area: submit;
     width: 100%;
     height: 100%;
     justify-content: space-around;
     align-items: center; }
-    .signUp__section .section__form .form__submit .button, .login__section .section__form .form__submit .button {
+    .signUp__section .section__form .form__submit .button__login, .login__section .section__form .form__submit .button__login, .contacto__section .section__form .form__submit .button__login, .signUp__section .section__form .form__submit .button__signup, .login__section .section__form .form__submit .button__signup, .contacto__section .section__form .form__submit .button__signup {
       padding: 10px;
       width: max-content;
-      border: 1px solid #dedede; }
+      background-color: #9cc4fc;
+      border: 1px solid #dedede;
+      border-radius: 5px; }
+    .signUp__section .section__form .form__submit .button__signup, .login__section .section__form .form__submit .button__signup, .contacto__section .section__form .form__submit .button__signup {
+      background-color: #aed581; }
+
+.login__section .section__form {
+  grid-template-rows: 3.125rem 7.5rem 7.5rem 4.375rem;
+  grid-template-areas: "header" "mid"  "bot" "submit"; }
+  .login__section .section__form .form__mid .mid__email {
+    width: 21.875rem; }
+  .login__section .section__form .form__bot .bot__contrasenia {
+    width: 21.875rem; }
+  .login__section .section__form .form__submit .button__login, .login__section .section__form .form__submit .button__signup {
+    padding: 10px;
+    width: max-content;
+    background-color: #aed581;
+    border: 1px solid #dedede;
+    border-radius: 5px; }
+  .login__section .section__form .form__submit .button__signup {
+    background-color: #9cc4fc; }
 
 .contacto__section .section__form {
-  width: 550px;
-  margin: 40px 0 40px 0;
-  padding: 1.25rem;
-  background-color: white;
-  border-radius: 4px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 50px 120px 120px max-content 70px;
+  grid-template-rows: 3.125rem 7.5rem 7.5rem max-content 4.375rem;
   grid-template-areas: "header" "topp"  "mid"  "bot" "submit"; }
-  .contacto__section .section__form .form__header {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #9cc4fc; }
-    .contacto__section .section__form .form__header h3 {
-      font-family: 'Ubuntu', sans-serif;
-      color: white;
-      margin: 0; }
-  .contacto__section .section__form .form__top {
-    display: flex;
-    grid-area: topp;
-    width: 100%;
-    height: 100%;
-    justify-content: space-around;
-    align-items: center; }
-    .contacto__section .section__form .form__top .top__nombre {
-      width: 200px;
-      padding: 5px;
-      border: 0;
-      border-bottom: 1px solid #dedede; }
-    .contacto__section .section__form .form__top .top__apellido {
-      width: 200px;
-      padding: 5px;
-      border: 0;
-      border-bottom: 1px solid #dedede; }
-  .contacto__section .section__form .form__mid {
-    display: flex;
-    grid-area: mid;
-    width: 100%;
-    height: 100%;
-    justify-content: space-around;
-    align-items: center; }
-    .contacto__section .section__form .form__mid .mid__email {
-      width: 200px;
-      padding: 5px;
-      border: 0;
-      border-bottom: 1px solid #dedede; }
-    .contacto__section .section__form .form__mid .mid__telefono {
-      width: 200px;
-      padding: 5px;
-      border: 0;
-      border-bottom: 1px solid #dedede; }
-  .contacto__section .section__form .form__bot {
-    display: flex;
-    grid-area: bot;
-    width: 100%;
-    height: 100%;
-    justify-content: space-around;
-    align-items: center; }
-    .contacto__section .section__form .form__bot .bot__mensaje {
-      width: 455px;
-      padding: 5px;
-      border: 0;
-      border-bottom: 1px solid #dedede; }
-  .contacto__section .section__form .form__submit {
-    display: flex;
-    grid-area: submit;
-    width: 100%;
-    height: 100%;
-    justify-content: space-around;
-    align-items: center; }
-    .contacto__section .section__form .form__submit .button {
-      padding: 10px;
-      width: max-content;
-      border: 1px solid #dedede; }
+  .contacto__section .section__form .form__bot .bot__mensaje {
+    width: 28.4375rem;
+    padding: 5px;
+    border: 0;
+    border-bottom: 1px solid #dedede; }
+  .contacto__section .section__form .form__submit .button {
+    padding: 10px;
+    width: max-content;
+    border: 1px solid #dedede; }
 
 /* --------------MEDIAS QUERIES-------------- */
 @media only screen and (max-width: 1200px) {

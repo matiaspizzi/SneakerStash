@@ -729,14 +729,14 @@ footer {
 .signUp__section{
 
     .section__form {
-        width: 550px;
-        margin: 40px 0 40px 0;
+        width: 34.375rem;
+        margin: 2.5rem 0.625rem 2.5rem 0.625rem;
         padding: 1.25rem;
         background-color: white;
         border-radius: 4px;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 50px 120px 120px 120px 70px;
+        grid-template-rows: 3.125rem 7.5rem 7.5rem 7.5rem 4.375rem;
         grid-template-areas:"header"
                             "topp" 
                             "mid" 
@@ -767,14 +767,14 @@ footer {
             align-items: center;
     
             .top__nombre{
-                width: 200px;
+                width: 12.5rem;
                 padding: 5px;
                 border: 0;
                 border-bottom: 1px solid rgb(222, 222, 222);
             }
     
             .top__apellido{
-                width: 200px;
+                width: 12.5rem;
                 padding: 5px;
                 border: 0;
                 border-bottom: 1px solid rgb(222, 222, 222);
@@ -790,14 +790,14 @@ footer {
             align-items: center;
     
             .mid__email{
-                width: 200px;
+                width: 12.5rem;
                 padding: 5px;
                 border: 0;
                 border-bottom: 1px solid rgb(222, 222, 222);
             }
     
             .mid__telefono{
-                width: 200px;
+                width: 12.5rem;
                 padding: 5px;
                 border: 0;
                 border-bottom: 1px solid rgb(222, 222, 222);
@@ -813,7 +813,7 @@ footer {
             align-items: center;
     
             .bot__contrasenia{
-                width: 200px;
+                width: 12.5rem;
                 padding: 5px;
                 border: 0;
                 border-bottom: 1px solid rgb(222, 222, 222);
@@ -828,10 +828,18 @@ footer {
             justify-content: space-around;
             align-items: center;
             
-            .button{
+            .button__login{
                 padding: 10px;
                 width: max-content;
+                background-color: rgb(156, 196, 252);
                 border: 1px solid rgb(222, 222, 222);
+                border-radius: 5px;
+            }
+
+            .button__signup{
+                @extend .button__login;
+
+                background-color: rgb(174, 213, 129);
             }
         }
     }
@@ -840,97 +848,64 @@ footer {
 .login__section{
 
     @extend .signUp__section;
+
+    .section__form {
+        grid-template-rows: 3.125rem 7.5rem 7.5rem 4.375rem; 
+        grid-template-areas:"header"
+                            "mid" 
+                            "bot"
+                            "submit";
+
+        .form__mid{
+    
+            .mid__email{
+                width: 21.875rem;
+            }
+        }
+
+        .form__bot{
+    
+            .bot__contrasenia{
+                width: 21.875rem;
+            }
+        } 
+
+        .form__submit{
+
+            .button__login{
+                padding: 10px;
+                width: max-content;
+                background-color: rgb(174, 213, 129);
+                border: 1px solid rgb(222, 222, 222);
+                border-radius: 5px;
+            }
+
+            .button__signup{
+                @extend .button__login;
+
+                background-color: rgb(156, 196, 252);
+            }
+        }
+    }
 }
 
 .contacto__section{
 
+    @extend .signUp__section;
+
     .section__form {
-        width: 550px;
-        margin: 40px 0 40px 0;
-        padding: 1.25rem;
-        background-color: white;
-        border-radius: 4px;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 50px 120px 120px max-content 70px;
+        grid-template-rows: 3.125rem 7.5rem 7.5rem max-content 4.375rem;
         grid-template-areas:"header"
                             "topp" 
                             "mid" 
                             "bot"
                             "submit";
-    
-    
-        .form__header{
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgb(156, 196, 252);
-    
-            h3{
-                font-family: 'Ubuntu', sans-serif;
-                color: white;
-                margin: 0;
-            }
-        }
-    
-        .form__top{
-            display: flex;
-            grid-area: topp;
-            width: 100%;
-            height: 100%;
-            justify-content: space-around;
-            align-items: center;
-    
-            .top__nombre{
-                width: 200px;
-                padding: 5px;
-                border: 0;
-                border-bottom: 1px solid rgb(222, 222, 222);
-            }
-    
-            .top__apellido{
-                width: 200px;
-                padding: 5px;
-                border: 0;
-                border-bottom: 1px solid rgb(222, 222, 222);
-            }
-        }
-        
-        .form__mid{
-            display: flex;
-            grid-area: mid;
-            width: 100%;
-            height: 100%;
-            justify-content: space-around;
-            align-items: center;
-    
-            .mid__email{
-                width: 200px;
-                padding: 5px;
-                border: 0;
-                border-bottom: 1px solid rgb(222, 222, 222);
-            }
-    
-            .mid__telefono{
-                width: 200px;
-                padding: 5px;
-                border: 0;
-                border-bottom: 1px solid rgb(222, 222, 222);
-            }
-        }
+
         
         .form__bot{
-            display: flex;
-            grid-area: bot;
-            width: 100%;
-            height: 100%;
-            justify-content: space-around;
-            align-items: center;
     
             .bot__mensaje{
-                width: 455px;
+                width: 28.4375rem;
                 padding: 5px;
                 border: 0;
                 border-bottom: 1px solid rgb(222, 222, 222);
@@ -938,12 +913,6 @@ footer {
         } 
     
         .form__submit{
-            display: flex;
-            grid-area: submit;
-            width: 100%;
-            height: 100%;
-            justify-content: space-around;
-            align-items: center;
             
             .button{
                 padding: 10px;
