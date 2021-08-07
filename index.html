@@ -58,7 +58,7 @@
                 </a>
             </li>
             <li class="nav__item">
-                <a href="">
+                <a href="pages/favoritos.html">
                     <img src="Multimedia/iconos/heart-solid.svg" class="nav__icono" alt="icono favoritos"> 
                 </a>
             </li>
@@ -77,16 +77,47 @@
         <aside class="main__aside">
             <ul class="aside__lista">
                 <li class="aside__item">
-                    <label for="Filtro1"><input type="checkbox" id="Filtro1"> Filtro 1 </label>
+                    <p>Ordenar por:</p>
+                    <select id="asideOrden" class="form-select">
+                        <option value="Popular">Popular</option>
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Precio">Precio (Bajo - Alto)</option>
+                        <option value="Precio">Precio (Alto - Bajo)</option>
+                    </select>
                 </li>
                 <li class="aside__item">
-                    <label for="Filtro2"><input type="checkbox" id="Filtro2"> Filtro 2 </label>
-                </li> 
-                <li class="aside__item">
-                    <label for="Filtro3"><input type="checkbox" id="Filtro3"> Filtro 3 </label>
+                    <p>Talle (US):</p>
+                    <select id="asideTalle" class="form-select">
+                        <option value="7">7</option>
+                        <option value="7.5">7.5</option>
+                        <option value="8">8</option>
+                        <option value="8.5">8.5</option>
+                        <option value="9">9</option>
+                        <option value="9.5">9.5</option>
+                        <option value="10">10</option>
+                        <option value="10.5">10.5</option>
+                        <option value="11">11</option>
+                        <option value="11.5">11.5</option>
+                        <option value="12">12</option>
+                        <option value="12.5">12.5</option>
+                        <option value="13">13</option>
+                        <option value="13.5">13.5</option>
+                        <option value="14">14</option>
+                        <option value="14.5">14.5</option>
+                        <option value="...">...</option>
+                    </select>
                 </li>
                 <li class="aside__item">
-                    <label for="Filtro4"><input type="checkbox" id="Filtro4"> Filtro 4 </label>
+                    <p>Género:</p>
+                    <select id="asideGenero" class="form-select">
+                        <option value="T">Todos</option>
+                        <option value="M">Mujer</option>
+                        <option value="H">Hombre</option>
+                    </select>
+                </li>
+                <li class="aside__item">
+                    <p>Precio:</p>
+                    <label for="Filtro5"><input type="range" id="filtroPrecio" name="precio" min="0" max="50.000"></label>
                 </li>
             </ul>
         </aside>
@@ -118,7 +149,7 @@
         <!-- INICIO SECTION -->
         <section class="index__section">
             <div class="section__grid">
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/AirJordan/AirJordan1RetroHighOGShadow2-0/imagen1.jpg" class="article__imagen" alt="Air Jordan 1 Retro High OG 'Shadow 2.0'">
                     </a>
@@ -126,7 +157,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Nike/WmnsDunkLowBarelyGreen/imagen1.jpg" class="article__imagen" alt="Wmns Dunk Low 'Barely Green'">
                     </a>
@@ -134,7 +165,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article"> 
+                <article class="grid__article"> 
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Yeezy/YeezyBoost700WaveRunner/imagen1.jpg" class="article__imagen" alt="Yeezy Boost 700 'Wave Runner'">
                     </a>
@@ -142,7 +173,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Adidas/UltraBoost1-0DNACookiesAndCream/imagen1.jpg" class="article__imagen" alt="UltraBoost 1.0 DNA 'Cookies And Cream'">
                     </a>
@@ -150,7 +181,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/AirJordan/DiorxAirJordan1High/imagen1.jpg" class="article__imagen" alt="Dior x Air Jordan 1 High">
                     </a>
@@ -158,7 +189,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
                 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Adidas/PharrellxNMDHumanRaceBlack/imagen1.jpg" class="article__imagen" alt="Pharrell x NMD Human Race 'Black'">
                     </a>
@@ -166,7 +197,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Adidas/DisneyxOzweegoTheLittleMermaidCollection-Ursula/imagen1.jpg" class="article__imagen" alt="Disney x Ozweego 'The Little Mermaid Collection - Ursula'">
                     </a>
@@ -174,7 +205,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/AirJordan/Off-WhitexAirJordan1RetroHighOGChicago/imagen1.jpg" class="article__imagen" alt="Off-White x Air Jordan 1 Retro High OG 'Chicago'">
                     </a>
@@ -182,7 +213,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Adidas/NiceKicksxUltraBoostNoVacancy/imagen1.jpg" class="article__imagen" alt="Nice Kicks x UltraBoost 'No Vacancy'">
                     </a>
@@ -190,7 +221,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Fila/AlifexTrigateLightGreyGum/imagen1.jpg" class="article__imagen" alt="Alife x Trigate 'Light Grey Gum'">
                     </a>
@@ -198,7 +229,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Puma/HariboxSuedePoppyRed/imagen1.jpg" class="article__imagen" alt="Haribo x Suede 'Poppy Red'">
                     </a>
@@ -206,7 +237,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/AirJordan/WmnsAirJordan1HighOGCourtPurple/imagen1.jpg" class="article__imagen" alt="Wmns Air Jordan 1 High OG 'Court Purple'">
                     </a>
@@ -214,7 +245,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Puma/J-ColexRS-DreamerAquarius/imagen1.jpg" class="article__imagen" alt="J. Cole x RS-Dreamer 'Aquarius'">
                     </a>
@@ -222,7 +253,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Fila/RayTracerBlack/imagen1.jpg" class="article__imagen" alt="Ray Tracer 'Black'">
                     </a>
@@ -230,7 +261,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Puma/RS-XToys/imagen1.jpg" class="article__imagen" alt="RS-X 'Toys'">
                     </a>
@@ -238,7 +269,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Fila/RayTracerGSWhiteBlackHris/imagen1.jpg" class="article__imagen" alt="Ray Tracer GS 'White Black Hris'">
                     </a>
@@ -246,7 +277,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Adidas/OzweegoPaleNude/imagen1.jpg" class="article__imagen" alt="Ozweego 'Pale Nude'">
                     </a>
@@ -254,7 +285,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Fila/StackhouseSpaghettiWhiteNavy/imagen1.jpg" class="article__imagen" alt="Stackhouse Spaghetti 'White Navy'">
                     </a>
@@ -262,7 +293,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/AirJordan/AirJordan1RetroHighOGHyperRoyal/imagen1.jpg" class="article__imagen" alt="Air Jordan 1 Retro High OG 'Hyper Royal'">
                     </a>
@@ -270,7 +301,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Puma/RS-X3Puzzle/imagen1.jpg" class="article__imagen" alt="RS-X3 'Puzzle'">
                     </a>
@@ -278,7 +309,7 @@
                     <p class="article__precio">Precio</p>
                 </article>
                 
-                <article class="section__article">
+                <article class="grid__article">
                     <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                         <img src="Multimedia/marcas/Puma/SuedeClassicOlympianBlue/imagen1.jpg" class="article__imagen" alt="Suede Classic+ 'Olympian Blue'">
                     </a>

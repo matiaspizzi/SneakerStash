@@ -5,7 +5,10 @@
 
 body {
   background-color: #ffffff;
-  font-size: 16px; }
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
   body a {
     font-family: 'Ubuntu', sans-serif;
     text-decoration: none;
@@ -69,7 +72,7 @@ nav {
   background-color: white;
   position: sticky;
   top: 0;
-  z-index: 900;
+  z-index: 999;
   padding: 0.65em 0 0.65em 0;
   margin: 0;
   width: 100%;
@@ -162,32 +165,39 @@ footer {
             width: 1rem; }
 
 /* --------------MAIN / SECTIONS / ASIDE-------------- */
+aside {
+  z-index: 850;
+  box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.26);
+  background-color: #ffffff;
+  grid-area: aside;
+  border-top: 1px solid #dedede;
+  width: 100%;
+  height: 100%; }
+  aside .aside__lista {
+    padding: 7.5em 0 0 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 4.375rem;
+    z-index: 800;
+    margin: 0; }
+  aside .aside__item {
+    padding: 1.25em 0 1.25em 0; }
+    aside .aside__item p {
+      margin: 0; }
+    aside .aside__item .form-select {
+      width: 8.125em; }
+    aside .aside__item #filtroPrecio {
+      width: 9.375em; }
+
 .index__main {
   display: grid;
-  grid-template-columns: 9.375em 1fr;
+  grid-template-columns: 12.5em 1fr;
   grid-template-rows: max-content max-content;
   grid-template-areas: "carousel carousel"  "aside section";
   grid-area: main; }
-  .index__main .main__aside {
-    z-index: 850;
-    box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.26);
-    background-color: #ffffff;
-    grid-area: aside;
-    border-top: 1px solid #dedede;
-    width: 100%;
-    height: 100%; }
-    .index__main .main__aside .aside__lista {
-      padding: 7.5em 0 0 0;
-      list-style-type: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: sticky;
-      top: 4.375rem;
-      z-index: 800;
-      margin: 0; }
-    .index__main .main__aside .aside__item {
-      padding: 1.25em 0 1.25em 0; }
   .index__main #carouselIndex {
     box-shadow: 0 10px 5px -10px rgba(0, 0, 0, 0.26);
     grid-area: carousel;
@@ -209,24 +219,24 @@ footer {
       grid-template-areas: "article article article"  "article article article"  "article article article";
       grid-column-gap: 0.43em;
       grid-row-gap: 0.43em; }
-    .index__main .index__section .section__article {
-      box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
-      background-color: white;
-      padding: 1.25em;
-      transition: all 0.1s;
-      width: 18.75em;
-      height: 21.87em;
-      border-radius: 4px; }
-      .index__main .index__section .section__article .article__imagen {
-        height: 15.625em;
-        width: 15.625em;
-        align-content: center; }
-      .index__main .index__section .section__article .article__nombre {
-        margin: 0;
-        font-weight: bold;
-        font-size: 14px; }
-      .index__main .index__section .section__article:hover {
-        transform: scale(1.07); }
+      .index__main .index__section .section__grid .grid__article {
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
+        background-color: white;
+        padding: 1.25em;
+        transition: all 0.1s;
+        width: 18.75em;
+        height: 21.87em;
+        border-radius: 4px; }
+        .index__main .index__section .section__grid .grid__article .article__imagen {
+          height: 15.625em;
+          width: 15.625em;
+          align-content: center; }
+        .index__main .index__section .section__grid .grid__article .article__nombre {
+          margin: 0;
+          font-weight: bold;
+          font-size: 14px; }
+        .index__main .index__section .section__grid .grid__article:hover {
+          transform: scale(1.07); }
 
 .articulo__main {
   grid-area: main;
@@ -352,25 +362,10 @@ footer {
 
 .marca__main {
   display: grid;
-  grid-template-columns: 9.375em 1fr;
+  grid-template-columns: 12.5em 1fr;
   grid-template-rows: max-content;
   grid-template-areas: "aside section";
   grid-area: main; }
-  .marca__main .main__aside {
-    background-color: #ffffff;
-    display: inline-block;
-    grid-area: aside; }
-    .marca__main .main__aside .aside__lista {
-      padding: 7.5em 0 0 0;
-      list-style-type: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 900; }
-    .marca__main .main__aside .aside__item {
-      padding-top: 1.25em; }
   .marca__main .main__section {
     background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
     display: flex;
@@ -405,6 +400,66 @@ footer {
         font-size: 14px; }
       .marca__main .main__section .grid__article:hover {
         transform: scale(1.07); }
+
+.favoritos__main {
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  width: 100%;
+  height: 100%; }
+  .favoritos__main .main__section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; }
+    .favoritos__main .main__section .section__grid {
+      align-content: center;
+      align-items: center;
+      margin: 1.25em;
+      display: grid;
+      width: max-content;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-areas: "Articulo Articulo" "Articulo Articulo" "Articulo Articulo";
+      grid-column-gap: 0.625em;
+      grid-row-gap: 0.625em; }
+      .favoritos__main .main__section .section__grid .grid__cardArticulo {
+        border-radius: 5px;
+        display: grid;
+        width: 100%;
+        height: max-content;
+        background-color: white;
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
+        grid-template-columns: 14.375rem 200px 10.625rem;
+        grid-template-rows: max-content;
+        grid-template-areas: "Img Datos Cancel";
+        align-items: center; }
+        .favoritos__main .main__section .section__grid .grid__cardArticulo .cardArticulo__Img {
+          height: 12.5em;
+          width: 12.5em;
+          grid-area: Img;
+          padding-left: 0.937rem; }
+        .favoritos__main .main__section .section__grid .grid__cardArticulo .cardArticulo__datos {
+          display: flex;
+          flex-direction: column;
+          grid-area: Datos; }
+          .favoritos__main .main__section .section__grid .grid__cardArticulo .cardArticulo__datos .article__nombre {
+            flex-wrap: wrap;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+            font-size: 18px;
+            grid-area: Datos; }
+          .favoritos__main .main__section .section__grid .grid__cardArticulo .cardArticulo__datos .article__precio {
+            font-size: 16px;
+            margin: 0; }
+        .favoritos__main .main__section .section__grid .grid__cardArticulo .cardArticulo__buttons {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          justify-content: center;
+          align-items: center; }
+          .favoritos__main .main__section .section__grid .grid__cardArticulo .cardArticulo__buttons .cardArticulo__icono {
+            grid-area: Cancel;
+            width: 1rem; }
 
 .carrito__main {
   background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
@@ -658,6 +713,10 @@ footer {
 @media only screen and (max-width: 1200px) {
   body {
     font-size: 14px; }
+  .favoritos__main .main__section .section__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "Articulo" "Articulo" "Articulo" "Articulo" "Articulo" "Articulo"; }
   .carrito__main .main__section .section__grid .grid__cardArticulo {
     grid-template-columns: 18.75rem 14.375rem 9.375rem;
     grid-template-rows: 10.875rem 5rem;
@@ -692,12 +751,23 @@ footer {
       margin-top: 3.125rem; } }
 
 @media only screen and (max-width: 992px) {
+  nav {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
   .index__main {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: max-content max-content max-content;
     grid-template-areas: "carousel" "aside" "section"; }
     .index__main .main__aside .aside__lista {
+      padding: 0;
+      flex-direction: row;
+      justify-content: space-evenly; }
+  .marca__main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content max-content;
+    grid-template-areas: "aside" "section"; }
+    .marca__main .main__aside .aside__lista {
       padding: 0;
       flex-direction: row;
       justify-content: space-evenly; } }
@@ -714,6 +784,8 @@ footer {
     grid-template-areas: "article    article"  "article    article" "article    article" "article    article"  "article    article";
     grid-column-gap: 2px;
     grid-row-gap: 2px; }
+  aside .aside__item .form-select {
+    width: 100px; }
   .marcas__main .main__section .section__grid {
     align-content: center;
     align-items: center;
@@ -724,7 +796,18 @@ footer {
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas: "Marca Marca" "Marca Marca" "Marca Marca";
     grid-column-gap: 0.625em;
-    grid-row-gap: 0.625em; } }
+    grid-row-gap: 0.625em; }
+  .marca__main .main__section .section__grid {
+    align-content: center;
+    align-items: center;
+    margin: 1.25em;
+    display: grid;
+    width: max-content;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "article    article"  "article    article" "article    article" "article    article"  "article    article";
+    grid-column-gap: 2px;
+    grid-row-gap: 2px; } }
 
 @media only screen and (max-width: 576px) {
   body {
@@ -745,13 +828,41 @@ footer {
     grid-template-areas: "article" "article"  "article" "article" "article" "article" "article" "article" "article";
     grid-column-gap: 2px;
     grid-row-gap: 2px; }
-  .index__main .index__section .section__article {
+    .index__main .index__section .section__grid .grid__article {
+      width: 21.5rem;
+      height: 12.5rem; }
+      .index__main .index__section .section__grid .grid__article .article__imagen {
+        height: 9rem;
+        width: 9rem; }
+      .index__main .index__section .section__grid .grid__article .article__nombre {
+        font-size: 12px; }
+  .favoritos__main .main__section .section__grid .grid__cardArticulo {
+    grid-template-columns: 12.5rem 12.5rem;
+    grid-template-rows: max-content 3.75rem;
+    grid-template-areas: "Img Datos"  "Buttons Buttons";
+    align-items: center;
+    justify-content: center; }
+    .favoritos__main .main__section .section__grid .grid__cardArticulo .cardArticulo__buttons {
+      grid-area: Buttons;
+      flex-direction: row; }
+  .marca__main .main__section .section__grid {
+    align-content: center;
+    align-items: center;
+    margin: 1.25em;
+    display: grid;
+    width: max-content;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "article" "article"  "article" "article" "article" "article" "article" "article" "article";
+    grid-column-gap: 2px;
+    grid-row-gap: 2px; }
+  .marca__main .main__section .grid__article {
     width: 21.5rem;
     height: 12.5rem; }
-    .index__main .index__section .section__article .article__imagen {
+    .marca__main .main__section .grid__article .article__imagen {
       height: 9rem;
       width: 9rem; }
-    .index__main .index__section .section__article .article__nombre {
+    .marca__main .main__section .grid__article .article__nombre {
       font-size: 12px; }
   .marcas__main .main__section .section__grid {
     grid-template-columns: 1fr;

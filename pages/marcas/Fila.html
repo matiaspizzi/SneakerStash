@@ -56,7 +56,7 @@
                 </a>
             </li>
             <li class="nav__item">
-                <a href="">
+                <a href="../favoritos.html">
                     <img src="../../Multimedia/iconos/heart-solid.svg" class="nav__icono" alt="icono favoritos"> 
                 </a>
             </li>
@@ -75,16 +75,47 @@
         <aside class="main__aside">
             <ul class="aside__lista">
                 <li class="aside__item">
-                    <label for="Filtro1"><input type="checkbox" name="Filtro1" id="Filtro1"> Filtro 1 </label>
+                    <p>Ordenar por:</p>
+                    <select id="asideOrden" class="form-select">
+                        <option value="Popular">Popular</option>
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Precio">Precio (Bajo - Alto)</option>
+                        <option value="Precio">Precio (Alto - Bajo)</option>
+                    </select>
                 </li>
                 <li class="aside__item">
-                    <label for="Filtro2"><input type="checkbox" name="Filtro2" id="Filtro2"> Filtro 2 </label>
-                </li> 
-                <li class="aside__item">
-                    <label for="Filtro3"><input type="checkbox" name="Filtro3" id="Filtro3"> Filtro 3 </label>
+                    <p>Talle (US):</p>
+                    <select id="asideTalle" class="form-select">
+                        <option value="7">7</option>
+                        <option value="7.5">7.5</option>
+                        <option value="8">8</option>
+                        <option value="8.5">8.5</option>
+                        <option value="9">9</option>
+                        <option value="9.5">9.5</option>
+                        <option value="10">10</option>
+                        <option value="10.5">10.5</option>
+                        <option value="11">11</option>
+                        <option value="11.5">11.5</option>
+                        <option value="12">12</option>
+                        <option value="12.5">12.5</option>
+                        <option value="13">13</option>
+                        <option value="13.5">13.5</option>
+                        <option value="14">14</option>
+                        <option value="14.5">14.5</option>
+                        <option value="...">...</option>
+                    </select>
                 </li>
                 <li class="aside__item">
-                    <label for="Filtro4"><input type="checkbox" name="Filtro4" id="Filtro4"> Filtro 4 </label>
+                    <p>Género:</p>
+                    <select id="asideGenero" class="form-select">
+                        <option value="T">Todos</option>
+                        <option value="M">Mujer</option>
+                        <option value="H">Hombre</option>
+                    </select>
+                </li>
+                <li class="aside__item">
+                    <p>Precio:</p>
+                    <label for="Filtro5"><input type="range" id="filtroPrecio" name="precio" min="0" max="50.000"></label>
                 </li>
             </ul>
         </aside>
