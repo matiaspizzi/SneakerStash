@@ -78,16 +78,16 @@
             <ul class="aside__lista">
                 <li class="aside__item">
                     <p>Ordenar por:</p>
-                    <select id="asideOrden" class="form-select">
-                        <option value="Popular">Popular</option>
-                        <option value="Nuevo">Nuevo</option>
-                        <option value="Precio">Precio (Bajo - Alto)</option>
-                        <option value="Precio">Precio (Alto - Bajo)</option>
+                    <select id="asideOrden" onchange="asideOrden();" class="form-select">
+                        <option value="1">Popular</option>
+                        <option value="2">Nuevo</option>
+                        <option value="3">Precio (Bajo - Alto)</option>
+                        <option value="4">Precio (Alto - Bajo)</option>
                     </select>
                 </li>
                 <li class="aside__item">
                     <p>Talle (US):</p>
-                    <select id="asideTalle" class="form-select">
+                    <select id="asideTalle"  class="form-select">
                         <option value="7">7</option>
                         <option value="7.5">7.5</option>
                         <option value="8">8</option>
@@ -149,13 +149,6 @@
         <!-- INICIO SECTION -->
         <section class="index__section">
             <div class="section__grid" id="index-section__grid">
-                <article class="grid__article">
-                    <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
-                        <img src="Multimedia/marcas/AirJordan/AirJordan1RetroHighOGShadow2-0/imagen1.jpg" class="article__imagen" alt="Air Jordan 1 Retro High OG 'Shadow 2.0'">
-                    </a>
-                    <h2 class="article__nombre">Air Jordan 1 Retro High OG 'Shadow 2.0'</h2>
-                    <p class="article__precio">Precio</p>
-                </article>
             </div>
         </section>
     </main>

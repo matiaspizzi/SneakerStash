@@ -235,6 +235,9 @@ aside {
           margin: 0;
           font-weight: bold;
           font-size: 14px; }
+        .index__main .index__section .section__grid .grid__article .article__precio {
+          font-size: 16px;
+          margin: 0; }
         .index__main .index__section .section__grid .grid__article:hover {
           transform: scale(1.07); }
 

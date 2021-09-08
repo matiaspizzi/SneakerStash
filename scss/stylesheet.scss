@@ -329,7 +329,7 @@ aside {
                 width: 18.75em;
                 height: 21.87em;
                 border-radius: 4px;
-    
+
                 .article__imagen {
                     height: 15.625em;
                     width: 15.625em;
@@ -340,6 +340,11 @@ aside {
                     margin: 0;
                     font-weight: bold;
                     font-size: 14px;
+                }
+
+                .article__precio{
+                    font-size: 16px;
+                    margin: 0;
                 }
               
                 &:hover {
