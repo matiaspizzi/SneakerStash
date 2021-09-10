@@ -263,6 +263,13 @@ aside {
         top: 4.375rem;
         z-index: 800;
         margin: 0;
+
+        .lista_checkboxes{
+
+            width: 100%;
+            justify-content: start;
+            padding: 2em;
+        }
     }
 
     .aside__item {
