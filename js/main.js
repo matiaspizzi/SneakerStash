@@ -62,31 +62,27 @@ const producto18 = new Producto ("true","false","Puma J-Cole x RS-Dreamer Aquari
 const producto19 = new Producto ("true","false","Puma RS-X Toys", "Puma", 14000, 14, "Multimedia/marcas/Puma/RS-XToys/imagen1.jpg", "Multimedia/marcas/AirJordan/AirJordan1RetroHighOGShadow2-0/imagen2.jpg", "Multimedia/marcas/AirJordan/AirJordan1RetroHighOGShadow2-0/imagen3.jpg", "Multimedia/marcas/AirJordan/AirJordan1RetroHighOGShadow2-0/imagen4.jpg", "Como sugiere su apodo, el Air Jordan 1 Retro High OG 'Shadow 2.0' utiliza la misma paleta neutra que aparece en el colorway original negro/gris de 1985. Este par hace uso de un empeine de cuero negro con superposiciones de ante gris en el dedo del pie y el talón. Un Swoosh gris a juego se une a los elementos tradicionales de marca que incluyen una etiqueta de lengua Nike Air y un logotipo de Jordan Wings estampado en el cuello lateral. Una copa de goma con amortiguación de aire encapsulada ofrece un paseo suave.");
 const producto20 = new Producto ("false","false","Puma Suede Classic Olympian Blue", "Puma", 14000, 14, "Multimedia/marcas/Puma/SuedeClassicOlympianBlue/imagen1.jpg", "Multimedia/marcas/AirJordan/AirJordan1RetroHighOGShadow2-0/imagen2.jpg", "Multimedia/marcas/AirJordan/AirJordan1RetroHighOGShadow2-0/imagen3.jpg", "Multimedia/marcas/AirJordan/AirJordan1RetroHighOGShadow2-0/imagen4.jpg", "Como sugiere su apodo, el Air Jordan 1 Retro High OG 'Shadow 2.0' utiliza la misma paleta neutra que aparece en el colorway original negro/gris de 1985. Este par hace uso de un empeine de cuero negro con superposiciones de ante gris en el dedo del pie y el talón. Un Swoosh gris a juego se une a los elementos tradicionales de marca que incluyen una etiqueta de lengua Nike Air y un logotipo de Jordan Wings estampado en el cuello lateral. Una copa de goma con amortiguación de aire encapsulada ofrece un paseo suave.");
 
-const baseDeDatos = [producto0, producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12, producto13, producto14, producto15, producto16, producto17, producto18, producto19, producto20];
+const BDD = [producto0, producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12, producto13, producto14, producto15, producto16, producto17, producto18, producto19, producto20];
 
-const BDD = baseDeDatos;
-
-const BDDJSON = JSON.stringify(baseDeDatos);
+const BDDJSON = JSON.stringify(BDD);
 localStorage.setItem("BaseDeDatos", BDDJSON);
 
 
 // GENERAR CARDS EN INDEX
 
-let imprimirCards = (datos) => {
+function imprimirCards(datos){
 
-    let acumCardIndex = ``;
+    for(let producto of datos){
 
-    datos.forEach((producto) => {
-        acumCardIndex += `<article class="grid__article">
-        <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
-            <img src="${producto.img}" class="article__imagen" alt="${producto.nombre}">
-        </a>
-        <h2 class="article__nombre">${producto.nombre}</h2>
-        <p class="article__precio">$${producto.precio}</p>
-    </article>`
-    });
-    
-    document.getElementById("index-section__grid").innerHTML = acumCardIndex;
+        $("#index-section__grid").append(
+            `<article class="grid__article">
+                <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
+                    <img src="${producto.img}" class="article__imagen" alt="${producto.nombre}">
+                </a>
+                <h2 class="article__nombre">${producto.nombre}</h2>
+                <p class="article__precio">$${producto.precio}</p>
+            </article>`);
+    }
 }
 
 imprimirCards (BDD);
@@ -100,31 +96,25 @@ const asideFiltros = () => {
 
 
     //* CHECKBOXES POPULAR / NUEVO
-    
-    checkValuePopular = document.getElementById("aside__checkUno").checked;
-    checkValueNuevo = document.getElementById("aside__checkDos").checked;
 
-    if(checkValuePopular == true){
-        const BDDOrdenado = BDD.filter(producto => producto.popular == true);
-        imprimirCards (BDDOrdenado);
+    if($("#aside__checkUno").is(":checked")){
+        const BDDPopular = BDD.filter(producto => producto.popular == true);
+        imprimirCards (BDDPopular);
     }
-    if(checkValueNuevo == true){
-        const BDDOrdenado = BDD.filter(producto => producto.nuevo == true);
-        imprimirCards (BDDOrdenado);
+    if($("#aside__checkDos").is(":checked")){
+        const BDDNuevo = BDD.filter(producto => producto.nuevo == true);
+        imprimirCards (BDDNuevo);
     }
-    if(checkValuePopular == true && checkValueNuevo == true){
-        const BDDOrdenado = BDD.filter(producto => producto.nuevo == true && producto.popular == true);
-        imprimirCards (BDDOrdenado);
-    }
+  
 
 
     //* SELECTS ORDENAR POR
 
-    const selectValue = document.getElementById("asideOrden").value;
+    const selectValue = $("#asideOrden").val();
 
     if(selectValue == "3"){
 
-        const BDDOrdenado = BDD.sort((a, b) => { 
+        let BDDOrdenado = BDD.sort((a, b) => { 
     
             if(a.precio > b.precio){
                 return 1;
@@ -140,7 +130,7 @@ const asideFiltros = () => {
     
     if(selectValue == "4"){
     
-        BDDOrdenado = baseDeDatos.sort((a, b) => { 
+        let BDDOrdenado = BDD.sort((a, b) => { 
     
             if(a.precio > b.precio){
                 return -1;

@@ -4,12 +4,12 @@
 
  
 const BDDJSON = localStorage.getItem("BaseDeDatos")
-const BaseDeDatos = JSON.parse(BDDJSON);
-console.log(BaseDeDatos);
+const BDD = JSON.parse(BDDJSON);
+console.log(BDD);
 
 
 const carrito = [];
-carrito.push(BaseDeDatos[0], BaseDeDatos[5], BaseDeDatos[18]);
+carrito.push(BDD[0], BDD[5], BDD[18]);
 console.log(carrito);
 
 
@@ -18,13 +18,13 @@ function agregarAlCarrito (){
 
 }
 
-let imprimirCards = () => {
+function imprimirCards(){
 
-    let acumCardCarrito = ``;
 
-    carrito.forEach((producto) => {
-        
-        acumCardCarrito += `<div class="grid__cardArticulo">
+    for(let producto of carrito){
+
+        $("#carrito-section__grid").prepend(
+            `<div class="grid__cardArticulo">
         <a href="marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
             <img src="../${producto.img}" class="cardArticulo__Img" alt="AirJordan1RetroHighOGShadow2"> 
         </a>
@@ -58,25 +58,15 @@ let imprimirCards = () => {
         <div class="cardArticulo__cancel">
             <button type="button" class="btn btn-outline-light">Eliminar <img src="../Multimedia/iconos/times-solid.svg" class="cardArticulo__icono" alt="icono cruz"></button>
         </div>
-        </div>`
-
-        
-    });
-    
-    const imprimir = document.getElementById("carrito-section__grid");
-    imprimir.insertAdjacentHTML("afterbegin", acumCardCarrito);
-
-
-
-    for(let i=0; i<carrito.length; i++){
-
-        let producto = carrito[i];
-        let subtotal = document.getElementById("cantidad").value * producto.precio
-        let precioTotal = 0;
-        precioTotal += subtotal;
-
-        document.getElementById("precioTotal").innerHTML = precioTotal;
+        </div>`);
     }
+    
+    for(const producto of carrito){
+        let precioTotal =0;
+        precioTotal += producto.precio;
+        $("#precioTotal").html(precioTotal);
+    }
+
 }
 
 imprimirCards ();

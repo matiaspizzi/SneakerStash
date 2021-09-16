@@ -37,11 +37,11 @@ function validarContrasenia (){
 
 function crearUsuario(){
     if(permiso == true){
-        let nombre = document.getElementById("usuario__nombre").value;
-        let apellido = document.getElementById("usuario__apellido").value;
-        let email = document.getElementById("usuario__email").value;
-        let telefono = document.getElementById("usuario__telefono").value;
-        let contrasenia = document.getElementById("usuario__contrasenia").value;
+        let nombre = $("#usuario__nombre").val();
+        let apellido = $("#usuario__apellido").val();
+        let email = $("#usuario__email").val();
+        let telefono = $("#usuario__telefono").val();
+        let contrasenia = $("#usuario__contrasenia").val();
 
         baseDeUsuarios.push( new Usuario (nombre, apellido, email, telefono, contrasenia));
 
