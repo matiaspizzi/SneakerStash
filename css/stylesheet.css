@@ -479,7 +479,8 @@ aside {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center; }
+    flex-direction: column;
+    align-items: center; }
     .carrito__main .main__section .section__grid {
       align-content: center;
       align-items: center;
@@ -487,8 +488,8 @@ aside {
       display: grid;
       width: max-content;
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      grid-template-areas: "Articulo" "Articulo" "Articulo";
+      grid-template-rows: 1fr;
+      grid-template-areas: "Articulo";
       grid-column-gap: 0.625em;
       grid-row-gap: 0.625em; }
       .carrito__main .main__section .section__grid .grid__cardArticulo {
@@ -557,21 +558,22 @@ aside {
           .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__cancel .cardArticulo__icono {
             grid-area: Cancel;
             width: 1rem; }
-      .carrito__main .main__section .section__grid .grid__submit {
-        width: 100%;
-        height: max-content;
+    .carrito__main .main__section .grid__submit {
+      width: max-content;
+      height: max-content;
+      display: flex;
+      justify-content: flex-end;
+      margin: 20px; }
+      .carrito__main .main__section .grid__submit .submit__card {
+        background-color: white;
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
         display: flex;
-        justify-content: flex-end; }
-        .carrito__main .main__section .section__grid .grid__submit .submit__card {
-          background-color: white;
-          box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
-          display: flex;
-          padding: 10px;
-          align-items: center;
-          border-radius: 5px; }
-          .carrito__main .main__section .section__grid .grid__submit .submit__card .submit__total {
-            padding-right: 1.25rem;
-            margin: 0; }
+        padding: 10px;
+        align-items: center;
+        border-radius: 5px; }
+        .carrito__main .main__section .grid__submit .submit__card .submit__total {
+          padding-right: 1.25rem;
+          margin: 0; }
 
 .contacto__section {
   background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
@@ -725,8 +727,8 @@ aside {
     font-size: 14px; }
   .favoritos__main .main__section .section__grid {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "Articulo" "Articulo" "Articulo" "Articulo" "Articulo" "Articulo"; }
+    grid-template-rows: 1fr;
+    grid-template-areas: "Articulo"; }
   .carrito__main .main__section .section__grid .grid__cardArticulo {
     grid-template-columns: 18.75rem 14.375rem 9.375rem;
     grid-template-rows: 10.875rem 5rem;
@@ -834,8 +836,8 @@ aside {
     display: grid;
     width: max-content;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "article" "article"  "article" "article" "article" "article" "article" "article" "article";
+    grid-template-rows: 1fr;
+    grid-template-areas: "article";
     grid-column-gap: 2px;
     grid-row-gap: 2px; }
     .index__main .index__section .section__grid .grid__article {
@@ -862,8 +864,8 @@ aside {
     display: grid;
     width: max-content;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "article" "article"  "article" "article" "article" "article" "article" "article" "article";
+    grid-template-rows: 1fr;
+    grid-template-areas: "article";
     grid-column-gap: 2px;
     grid-row-gap: 2px; }
   .marca__main .main__section .grid__article {
@@ -876,8 +878,8 @@ aside {
       font-size: 12px; }
   .marcas__main .main__section .section__grid {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "Marca" "Marca" "Marca" "Marca" "Marca" "Marca"; }
+    grid-template-rows: 1fr;
+    grid-template-areas: "Marca"; }
     .marcas__main .main__section .section__grid .grid__cardMarca {
       width: 22rem;
       height: 15em; }

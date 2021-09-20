@@ -1,12 +1,15 @@
 
-var carrito = JSON.parse(localStorage.carrito);
-const BDD = JSON.parse(localStorage.BaseDeDatos);
+var carrito = JSON.parse(localStorage.getItem("carrito"));
+const BDD = JSON.parse(localStorage.getItem("BaseDeDatos"));
+
 
 function imprimirCards(){
+    
+    $("#carrito-section__grid").html(``);
 
     for(let producto of carrito){
 
-        $("#carrito-section__grid").prepend(
+        $("#carrito-section__grid").append(
         `<div id="${producto.id}" class="grid__cardArticulo">
         <a href="marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
             <img src="../${producto.img}" class="cardArticulo__Img" alt="AirJordan1RetroHighOGShadow2"> 
@@ -57,9 +60,13 @@ imprimirCards ();
 
 function quitarDelCarrito (id) {
 
-    carrito = carrito.filter(eliminar = (producto) => {
-        return producto.id !== id;
-    });
+    carrito = carrito.filter(producto => producto.id !== id);
     console.log(carrito)
+    guardarCarrito ();
     imprimirCards ();
+}
+
+function guardarCarrito () {
+
+    localStorage.setItem('carrito', JSON.stringify(carrito));
 }

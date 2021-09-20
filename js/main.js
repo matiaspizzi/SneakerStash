@@ -65,8 +65,7 @@ const producto20 = new Producto ("20","false","false","Puma Suede Classic Olympi
 
 const BDD = [producto0, producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12, producto13, producto14, producto15, producto16, producto17, producto18, producto19, producto20];
 
-const BDDJSON = JSON.stringify(BDD);
-localStorage.setItem("BaseDeDatos", BDDJSON);
+localStorage.setItem("BaseDeDatos", JSON.stringify(BDD));
 
 
 // GENERAR CARDS EN INDEX

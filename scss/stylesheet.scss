@@ -697,7 +697,8 @@ aside {
         width: 100%;
         height: 100%;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
 
         .section__grid {
             align-content: center;
@@ -706,8 +707,8 @@ aside {
             display: grid;
             width: max-content;
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            grid-template-areas: "Articulo" "Articulo" "Articulo";
+            grid-template-rows: 1fr;
+            grid-template-areas: "Articulo";
             grid-column-gap: 0.625em;
             grid-row-gap: 0.625em;
             
@@ -802,28 +803,29 @@ aside {
                     }
                 }
             }
+        } 
 
-            .grid__submit{
-                width: 100%;
-                height: max-content;
+        .grid__submit{
+            width: max-content;
+            height: max-content;
+            display: flex;
+            justify-content: flex-end;
+            margin: 20px;
+            
+            .submit__card{
+                background-color: white;
+                box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
                 display: flex;
-                justify-content: flex-end;
-                
-                .submit__card{
-                    background-color: white;
-                    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
-                    display: flex;
-                    padding: 10px;
-                    align-items: center;
-                    border-radius: 5px;
+                padding: 10px;
+                align-items: center;
+                border-radius: 5px;
 
-                    .submit__total{
-                        padding-right: 1.25rem;
-                        margin: 0;
-                    }
+                .submit__total{
+                    padding-right: 1.25rem;
+                    margin: 0;
                 }
             }
-        } 
+        }
     }
 }
 
@@ -1094,13 +1096,8 @@ aside {
 
             .section__grid {
                 grid-template-columns: 1fr;
-                grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+                grid-template-rows: 1fr;
                 grid-template-areas: 
-                "Articulo"
-                "Articulo"
-                "Articulo"
-                "Articulo"
-                "Articulo"
                 "Articulo";
             } 
         }
@@ -1329,16 +1326,8 @@ aside {
                 display: grid;
                 width: max-content;
                 grid-template-columns: 1fr;
-                grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                grid-template-rows: 1fr;
                 grid-template-areas: 
-                        "article"
-                        "article" 
-                        "article"
-                        "article"
-                        "article"
-                        "article"
-                        "article"
-                        "article"
                         "article";
                 grid-column-gap: 2px;
                 grid-row-gap: 2px;
@@ -1395,16 +1384,8 @@ aside {
                 display: grid;
                 width: max-content;
                 grid-template-columns: 1fr;
-                grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                grid-template-rows: 1fr;
                 grid-template-areas: 
-                        "article"
-                        "article" 
-                        "article"
-                        "article"
-                        "article"
-                        "article"
-                        "article"
-                        "article"
                         "article";
                 grid-column-gap: 2px;
                 grid-row-gap: 2px;
@@ -1432,13 +1413,8 @@ aside {
     
             .section__grid {
                 grid-template-columns: 1fr;
-                grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-                grid-template-areas: "Marca"
-                                     "Marca"
-                                     "Marca"
-                                     "Marca"
-                                     "Marca"
-                                     "Marca";
+                grid-template-rows: 1fr;
+                grid-template-areas: "Marca";
 
 
                 .grid__cardMarca{
