@@ -1,30 +1,13 @@
 
-
-
-
- 
-const BDDJSON = localStorage.getItem("BaseDeDatos")
-const BDD = JSON.parse(BDDJSON);
-console.log(BDD);
-
-
-const carrito = [];
-carrito.push(BDD[0], BDD[5], BDD[18]);
-console.log(carrito);
-
-
-function agregarAlCarrito (){
-
-
-}
+var carrito = JSON.parse(localStorage.carrito);
+const BDD = JSON.parse(localStorage.BaseDeDatos);
 
 function imprimirCards(){
-
 
     for(let producto of carrito){
 
         $("#carrito-section__grid").prepend(
-            `<div class="grid__cardArticulo">
+        `<div id="${producto.id}" class="grid__cardArticulo">
         <a href="marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
             <img src="../${producto.img}" class="cardArticulo__Img" alt="AirJordan1RetroHighOGShadow2"> 
         </a>
@@ -56,7 +39,7 @@ function imprimirCards(){
             <p>Subtotal: $</p>
         </div>
         <div class="cardArticulo__cancel">
-            <button type="button" class="btn btn-outline-light">Eliminar <img src="../Multimedia/iconos/times-solid.svg" class="cardArticulo__icono" alt="icono cruz"></button>
+            <button type="button" class="btn btn-outline-light" onclick="quitarDelCarrito('${producto.id}')">Eliminar <img src="../Multimedia/iconos/times-solid.svg" class="cardArticulo__icono" alt="icono cruz"></button>
         </div>
         </div>`);
     }
@@ -71,3 +54,12 @@ function imprimirCards(){
 
 imprimirCards ();
 
+
+function quitarDelCarrito (id) {
+
+    carrito = carrito.filter(eliminar = (producto) => {
+        return producto.id !== id;
+    });
+    console.log(carrito)
+    imprimirCards ();
+}

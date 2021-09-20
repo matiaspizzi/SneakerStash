@@ -11,6 +11,10 @@ body {
     flex-direction: column;
     height: 100%;
 
+    #button__cart{
+        width: 1.3em;
+    }
+
     a {
         font-family: 'Ubuntu', sans-serif;
         text-decoration: none;
@@ -332,14 +336,16 @@ aside {
                 box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
                 background-color: white;
                 padding: 1.25em;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
                 transition: all 0.1s;
                 width: 18.75em;
                 height: 21.87em;
                 border-radius: 4px;
 
                 .article__imagen {
-                    height: 15.625em;
-                    width: 15.625em;
+                    width: 250px;
                     align-content: center;
                 }
         
@@ -409,8 +415,7 @@ aside {
                 grid-area: princImg;
                 justify-content: space-between;
                 padding: 1.25em;
-                height: 23.12em;
-                width: 23.12em;
+                width: 23.12rem;
                 align-content: center;
                 }
             
@@ -710,16 +715,16 @@ aside {
                 border-radius: 5px;
                 display: grid;
                 width: 100%;
-                height: max-content;
+                height: 9.375rem;
                 background-color: white;
                 box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
                 grid-template-columns: 14.375rem 21.875rem 10rem 10rem 10.625rem;
-                grid-template-rows: max-content;
+                grid-template-rows: 9.375rem;
                 grid-template-areas: "Img Datos Select Subtotal Cancel";
                 align-items: center;
 
                 .cardArticulo__Img{
-                    height: 12.5em;
+                    height: max-content;
                     width: 12.5em;
                     grid-area: Img;
                     padding-left: 0.937rem;
