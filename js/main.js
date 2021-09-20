@@ -81,7 +81,7 @@ function imprimirCards(datos){
                 </a>
                 <h2 class="article__nombre">${producto.nombre}</h2>
                 <p class="article__precio">$${producto.precio}</p>
-                <button type="button" class="btn btn-light" onclick="agregarAlCarrito('${producto.id}')"><img src="../../../Multimedia/iconos/cart-plus-solid.svg" id="button__cart"  alt="icono carrito"> Agregar al carrito</button>
+                <button type="button" class="btn btn-light" onclick="agregarAlCarrito('${producto.id}')"><img src="Multimedia/iconos/cart-plus-solid.svg" id="button__cart"  alt="icono carrito"> Agregar al carrito</button>
 
             </article>`);
     }

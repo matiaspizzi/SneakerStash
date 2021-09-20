@@ -4,11 +4,14 @@ const BDD = JSON.parse(localStorage.getItem("BaseDeDatos"));
 
 
 function imprimirCards(){
-    
+
     $("#carrito-section__grid").html(``);
+
+    let precioTotal =0;
 
     for(let producto of carrito){
 
+        
         $("#carrito-section__grid").append(
         `<div id="${producto.id}" class="grid__cardArticulo">
         <a href="marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
@@ -45,15 +48,15 @@ function imprimirCards(){
             <button type="button" class="btn btn-outline-light" onclick="quitarDelCarrito('${producto.id}')">Eliminar <img src="../Multimedia/iconos/times-solid.svg" class="cardArticulo__icono" alt="icono cruz"></button>
         </div>
         </div>`);
+        
+        cantidad = $("#cantidad").val();
+
+        precioTotal += producto.precio * cantidad;
     }
-    
-    for(const producto of carrito){
-        let precioTotal =0;
-        precioTotal += producto.precio;
+
         $("#precioTotal").html(precioTotal);
     }
 
-}
 
 imprimirCards ();
 
