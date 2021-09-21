@@ -20,12 +20,11 @@ class Producto{
     validarStock (pedido){
         if(this.stock > pedido){
 
-            agregarAlCarrito(this.name, pedido)
             return (true);
         }
         else{
             
-            alert(`Stock insuficiente. Stock: ${this.stock}`);
+            console.log(`Stock insuficiente. Stock: ${this.stock}`);
             return (false);
         }
     }
@@ -86,13 +85,9 @@ function imprimirCards(datos){
             </article>`);
     }
 }
-
 imprimirCards (BDD);
 
 
-
-
-// ********************** ORDENAMIENTO POR PRECIO
 
 const asideFiltros = () => {
 
@@ -109,8 +104,8 @@ const asideFiltros = () => {
     }
   
 
+//********************** ORDENAMIENTO POR PRECIO
 
-    //* SELECTS ORDENAR POR
 
     const selectValue = $("#asideOrden").val();
 
@@ -150,18 +145,12 @@ const asideFiltros = () => {
 
 
 
+// AGREGAR AL CARRITO
 
-
-
-
-
-// AGREGAR O QUITAR DEL CARRITO
-
-const carrito = [];
+const carrito = JSON.parse(localStorage.carrito);
 
 function agregarAlCarrito(id) {
-    // TODO: En vez de un titulo, agregar el producto que se agrego.
-    // TODO: Verificar stock del producto
+
     console.log(carrito);
     const productoEncontrado = BDD.find(producto => producto.id === id);
 
@@ -175,56 +164,4 @@ function agregarAlCarrito(id) {
         console.log("error");
     }    
 }
-
-
-
-
-
-
-// CALCULAR PRECIO DEL CARRITO
-
-const precioTotal = (valor) => {
-    
-    sumaTotal += valor;
-
-    return (sumaTotal);
-}
-
-const precioTotalConIVA = (sumaTotal) => {
-    
-    sumaTotalConIVA = sumaTotal*IVA;
-
-    return (sumaTotalConIVA);
-}
-
-const precioTotalEnCuotas = (sumaTotalConIVA) => {
-
-    precioEnCuotas = sumaTotalConIVA*doceCuotas
-
-    return (precioEnCuotas);
-}
-
-
-let sumaTotal = 0;
-let sumaTotalConIVA = 0;
-let IVA = 1.21;
-let doceCuotas = 1.2
-
-
-for (let i=0; i < carrito.length; i++){
-
-    precioTotal (carrito[i].precio);
-
-}
-
-precioTotalConIVA (sumaTotal);
-
-precioTotalEnCuotas (sumaTotalConIVA);
-
-
-console.log(`El precio total sin IVA es de: $${sumaTotal.toFixed(2)}`);
-
-console.log(`El precio total con IVA es de: $${sumaTotalConIVA.toFixed(2)}`);
-
-console.log(`Con opción de 12 cuotas de: $${(precioEnCuotas/12).toFixed(2)} (Interés del 20%)`);
 

@@ -1,6 +1,6 @@
 
-var carrito = JSON.parse(localStorage.getItem("carrito"));
-const BDD = JSON.parse(localStorage.getItem("BaseDeDatos"));
+var carrito = JSON.parse(localStorage.carrito);
+const BDD = JSON.parse(localStorage.BaseDeDatos);
 
 
 function imprimirCards(){
@@ -61,7 +61,7 @@ function imprimirCards(){
 imprimirCards ();
 
 
-function quitarDelCarrito (id) {
+function quitarDelCarrito(id) {
 
     carrito = carrito.filter(producto => producto.id !== id);
     console.log(carrito)
@@ -71,5 +71,5 @@ function quitarDelCarrito (id) {
 
 function guardarCarrito () {
 
-    localStorage.setItem('carrito', JSON.stringify(carrito));
+    localStorage.carrito = JSON.stringify(carrito);
 }
