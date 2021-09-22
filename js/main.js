@@ -74,7 +74,7 @@ function imprimirCards(datos){
     for(let producto of datos){
 
         $("#index-section__grid").append(
-            `<article class="grid__article">
+            `<article class="grid__article" id="${producto.id}">
                 <a href="pages/marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
                     <img src="${producto.img}" class="article__imagen" alt="${producto.nombre}">
                 </a>
@@ -150,6 +150,9 @@ const asideFiltros = () => {
 const carrito = JSON.parse(localStorage.carrito);
 
 function agregarAlCarrito(id) {
+
+
+    $(`#${id}`).fadeOut("normal");
 
     console.log(carrito);
     const productoEncontrado = BDD.find(producto => producto.id === id);

@@ -64,9 +64,13 @@ imprimirCards ();
 function quitarDelCarrito(id) {
 
     carrito = carrito.filter(producto => producto.id !== id);
-    console.log(carrito)
+    console.log(carrito);
     guardarCarrito ();
-    imprimirCards ();
+
+    $(`#${id}`).slideUp(250, () => {
+        
+        imprimirCards ();
+    });
 }
 
 function guardarCarrito () {
