@@ -30,7 +30,7 @@ function comprar (){
         console.log(respuesta);
         console.log(elemento);
         if(status == "success"){
-            window.open(respuesta.sandbox_init_point);
+            window.open(respuesta.init_point);
         }
     });
 }
