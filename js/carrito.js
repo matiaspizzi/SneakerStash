@@ -1,19 +1,16 @@
 
-var carrito = JSON.parse(localStorage.carrito);
-const BDD = JSON.parse(localStorage.BaseDeDatos);
-
+var carrito = JSON.parse(localStorage.getItem("carrito"));
+const BDD = JSON.parse(localStorage.getItem("BaseDeDatos"));
+const precios = [];
 
 function imprimirCards(){
 
     $("#carrito-section__grid").html(``);
 
-    let precioTotal =0;
-
     for(let producto of carrito){
 
-        
         $("#carrito-section__grid").append(
-        `<div id="${producto.id}" class="grid__cardArticulo">
+        `<div id="producto${producto.id}" class="grid__cardArticulo">
         <a href="marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
             <img src="../${producto.img}" class="cardArticulo__Img" alt="AirJordan1RetroHighOGShadow2"> 
         </a>
@@ -32,7 +29,7 @@ function imprimirCards(){
             </div>
             <div class="select__cantidad">
                 <label for="cantidad">Cantidad: </label>
-                <select name="cantidad" id="cantidad" class="form-select">
+                <select name="cantidad" id="cantidad${producto.id}" onchange="subtotal(${producto.precio}, ${producto.id})"class="form-select">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -42,20 +39,40 @@ function imprimirCards(){
             </div>
         </div>
         <div class="cardArticulo__subtotal">
-            <p>Subtotal: $</p>
+            <p id="subtotal${producto.id}"><b>Subtotal:</b> $${producto.precio}</p>
         </div>
         <div class="cardArticulo__cancel">
             <button type="button" class="btn btn-outline-light" onclick="quitarDelCarrito('${producto.id}')">Eliminar <img src="../Multimedia/iconos/times-solid.svg" class="cardArticulo__icono" alt="icono cruz"></button>
         </div>
         </div>`);
-        
-        cantidad = $("#cantidad").val();
 
-        precioTotal += producto.precio * cantidad;
-    }
+        // IMPRIMIR EL PRECIO TOTAL
+        const i = producto.id;
+        precios[i] = producto.precio;
+        const total = precios.reduce((a, b) => Number(a) + Number(b), 0);
+        $("#precioTotal").html(total)
+    }     
+}
 
-        $("#precioTotal").html(precioTotal);
-    }
+
+
+function subtotal (precio, id){
+    
+    // CALCULAR SUBTOTAL
+    const cantidad = $(`#cantidad${id}`).val();
+    const subtotal = cantidad * precio;
+    $(`#subtotal${id}`).html(`<b>Subtotal:</b> $`+subtotal);
+
+    
+    // AÑADIR SUBTOTAL AL TOTAL
+    const i = id;
+    precios[i] = subtotal;
+
+
+    // SUMAR LOS SUBTOTALES E IMPRIMIR EL TOTAL
+    const total = precios.reduce((a, b) => Number(a) + Number(b), 0);
+    $("#precioTotal").html(total)
+}
 
 
 imprimirCards ();
@@ -63,17 +80,26 @@ imprimirCards ();
 
 function quitarDelCarrito(id) {
 
+    // QUITAR PRODUCTO DEL CARRITO
     carrito = carrito.filter(producto => producto.id !== id);
     console.log(carrito);
     guardarCarrito ();
 
-    $(`#${id}`).slideUp(250, () => {
-        
-        imprimirCards ();
-    });
+
+    // DESCONTAR PRECIO DEL TOTAL
+    const i = id;
+    precios[i] = 0;
+    const total = precios.reduce((a, b) => Number(a) + Number(b), 0);
+    $("#precioTotal").html(total)
+
+
+    // ANIMACION
+    $(`#producto${id}`).slideUp(250);
 }
+
+
 
 function guardarCarrito () {
 
-    localStorage.carrito = JSON.stringify(carrito);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }

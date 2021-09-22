@@ -66,6 +66,9 @@ const BDD = [producto0, producto1, producto2, producto3, producto4, producto5, p
 
 localStorage.setItem("BaseDeDatos", JSON.stringify(BDD));
 
+const inicio = [];
+localStorage.setItem("carrito", JSON.stringify(inicio));
+
 
 // GENERAR CARDS EN INDEX
 
@@ -147,7 +150,9 @@ const asideFiltros = () => {
 
 // AGREGAR AL CARRITO
 
-const carrito = JSON.parse(localStorage.carrito);
+
+
+const carrito = JSON.parse(localStorage.getItem("carrito"));
 
 function agregarAlCarrito(id) {
 
@@ -160,11 +165,7 @@ function agregarAlCarrito(id) {
     if (productoEncontrado != undefined) {
 
         carrito.push(productoEncontrado);
-        localStorage.carrito = JSON.stringify(carrito);
-
-    } else {
-
-        console.log("error");
-    }    
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+    }
 }
 
