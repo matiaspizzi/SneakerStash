@@ -1,5 +1,12 @@
 
-const BDU = JSON.parse(localStorage.getItem("BaseDeUsuarios"));
+var BDU = JSON.parse(localStorage.getItem("BaseDeUsuarios"));
+
+console.log(BDU);
+//Si BDU no se encuentra en el localStorage, sería = Null, por lo que se ejecuta esto:
+if (BDU == null){
+    BDU = [];
+    localStorage.setItem("BaseDeUsuarios", JSON.stringify(BDU));
+}
 
 class Usuario{
     constructor (nombre, apellido, email, telefono, contrasenia) {
@@ -19,14 +26,14 @@ function validarContrasenia (){
     let contrasenia = $("#usuario__contrasenia").val();
     let recontrasenia = $("#usuario__recontrasenia").val();
 
-    if(contrasenia == recontrasenia && contrasenia !== ""){
+    if(contrasenia == recontrasenia && contrasenia != undefined){
         console.log("contraseña validada");
         document.getElementById("usuario__recontrasenia").style.borderBottom = "1px solid rgb(222, 222, 222)"
         return true;
     }
     else{
 
-        console.log("las contraseñas no coinciden")
+        console.log("Rellene el campo/las contraseñas no coinciden")
         document.getElementById("usuario__recontrasenia").style.borderBottom = "1px solid red"
         return false;
     }
@@ -34,12 +41,12 @@ function validarContrasenia (){
 
 
 function validarMail (){
-
+    
     let mail = $("#usuario__email").val();
     const found = BDU.find(usuario => usuario.email == mail);
 
-    if(found != null){
-        console.log("Este mail ya se ha registrado");
+    if(mail != undefined && found != null){
+        console.log("Rellene el campo/Este mail ya se ha registrado");
         document.getElementById("usuario__email").style.borderBottom = "1px solid red"
         return false;
     }
@@ -57,8 +64,8 @@ function validarTelefono (){
     let tel = $("#usuario__telefono").val();
     const found = BDU.find(usuario => usuario.telefono == tel);
 
-    if(found != null){
-        console.log("Este telefono ya se ha registrado");
+    if(tel != undefined && found != null){
+        console.log("Rellene el campo/Este telefono ya se ha registrado");
         document.getElementById("usuario__telefono").style.borderBottom = "1px solid red"
         return false;
     }
@@ -69,7 +76,6 @@ function validarTelefono (){
         return true;
     }
 }
-
 
 
 function crearUsuario(){

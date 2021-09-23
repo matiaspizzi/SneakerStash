@@ -147,7 +147,14 @@ const asideFiltros = () => {
 
 // AGREGAR AL CARRITO
 
-const carrito = JSON.parse(localStorage.getItem("carrito"));
+var carrito = JSON.parse(localStorage.getItem("carrito"));
+
+console.log(carrito);
+//Si el carrito no se encuentra en el localStorage, sería = Null, por lo que se ejecuta esto:
+if (carrito == null){
+    carrito = [];
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
 
 function agregarAlCarrito(id) {
 
@@ -164,13 +171,6 @@ function agregarAlCarrito(id) {
 
         carrito.push(productoEncontradoBDD);
         localStorage.setItem("carrito", JSON.stringify(carrito));
-    }
-
-    //Si el carrito no se encuentra en el localStorage, sería = Null, por lo que se ejecuta esto:
-    if (carrito == null){
-        const carritoNull = [];
-        carritoNull.push(productoEncontradoBDD);
-        localStorage.setItem("carrito", JSON.stringify(carritoNull));
     }
 }
 
