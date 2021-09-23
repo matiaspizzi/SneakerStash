@@ -66,9 +66,6 @@ const BDD = [producto0, producto1, producto2, producto3, producto4, producto5, p
 
 localStorage.setItem("BaseDeDatos", JSON.stringify(BDD));
 
-const inicio = [];
-localStorage.setItem("carrito", JSON.stringify(inicio));
-
 
 // GENERAR CARDS EN INDEX
 
@@ -92,10 +89,11 @@ imprimirCards (BDD);
 
 
 
+
 const asideFiltros = () => {
 
 
-    //* CHECKBOXES POPULAR / NUEVO
+    // CHECKBOXES POPULAR / NUEVO
 
     if($("#aside__checkUno").is(":checked")){
         const BDDPopular = BDD.filter(producto => producto.popular == true);
@@ -107,8 +105,7 @@ const asideFiltros = () => {
     }
   
 
-//********************** ORDENAMIENTO POR PRECIO
-
+    // ORDENAMIENTO POR PRECIO
 
     const selectValue = $("#asideOrden").val();
 
@@ -150,22 +147,30 @@ const asideFiltros = () => {
 
 // AGREGAR AL CARRITO
 
-
-
 const carrito = JSON.parse(localStorage.getItem("carrito"));
 
 function agregarAlCarrito(id) {
 
-
     $(`#${id}`).fadeOut("normal");
 
     console.log(carrito);
-    const productoEncontrado = BDD.find(producto => producto.id === id);
+    const productoEncontradoBDD = BDD.find(producto => producto.id === id);
 
-    if (productoEncontrado != undefined) {
+    // Para verificar si el producto ya está en el carrito
+    const productoEncontradoCarrito = carrito.find(producto => producto.id === id);
 
-        carrito.push(productoEncontrado);
+    // Verifica que el producto existe, si el carrito existe y si el producto no se encuentra en él.
+    if (productoEncontradoBDD != undefined && carrito != null && productoEncontradoCarrito == null) {
+
+        carrito.push(productoEncontradoBDD);
         localStorage.setItem("carrito", JSON.stringify(carrito));
+    }
+
+    //Si el carrito no se encuentra en el localStorage, sería = Null, por lo que se ejecuta esto:
+    if (carrito == null){
+        const carritoNull = [];
+        carritoNull.push(productoEncontradoBDD);
+        localStorage.setItem("carrito", JSON.stringify(carritoNull));
     }
 }
 
