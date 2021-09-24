@@ -1,5 +1,6 @@
 
 const BDD = JSON.parse(localStorage.getItem("BaseDeDatos"));
+
 var carrito = JSON.parse(localStorage.getItem("carrito"));
 
 const precios = [];

@@ -345,7 +345,7 @@ aside {
                 border-radius: 4px;
 
                 .article__imagen {
-                    width: 250px;
+                    width: 15.625rem;
                     align-content: center;
                 }
         
@@ -588,8 +588,7 @@ aside {
             height: 21.875em;
     
             .article__imagen {
-                height: 15.625em;
-                width: 15.625em;
+                width: 15.625rem;
                 align-content: center;
             }
     
@@ -1103,6 +1102,22 @@ aside {
         }
     }
 
+    .index__main {
+
+        .index__section{
+
+            .section__grid{
+
+                .grid__article {
+    
+                    .article__imagen {
+                        width: 12.5rem;
+                    }
+                }
+            }   
+        }
+    }
+
     .carrito__main{
         
         .main__section{
@@ -1240,7 +1255,7 @@ aside {
         .aside__item {
     
             .form-select{
-                width: 100px;
+                width: 6.25rem;
             }
         }
     }
@@ -1337,8 +1352,7 @@ aside {
                     height: 12.5rem;
     
                     .article__imagen {
-                        height: 9rem;
-                        width: 9rem;
+                        width: 10.625rem;
                     }
             
                     .article__nombre {
@@ -1396,8 +1410,7 @@ aside {
                 height: 12.5rem;
 
                 .article__imagen {
-                    height: 9rem;
-                    width: 9rem;
+                    width: 10.625rem;
                 }
         
                 .article__nombre {

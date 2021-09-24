@@ -27,7 +27,6 @@ function comprar() {
         "https://api.mercadopago.com/checkout/preferences",
         JSON.stringify(elemento),
         (respuesta, status) => {
-            console.log(respuesta);
             console.log(elemento);
             if (status == "success") {
                 window.open(respuesta.init_point);
