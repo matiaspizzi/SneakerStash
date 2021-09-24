@@ -52,29 +52,29 @@
 
 // const BDD = [producto0, producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12, producto13, producto14, producto15, producto16, producto17, producto18, producto19, producto20];
 
-
 const BDD = [];
 
-$.getJSON( "data/productos.json", function( productos ) {
 
-    productos.forEach( producto => {
-        
-      BDD.push(producto);
+$.getJSON("data/productos.json", function (productos) {
+
+    productos.forEach(producto => {
+
+        BDD.push(producto);
     });
 
-   console.log(BDD)
-  });
-
+    imprimirCards(BDD);
+});
 
 
 
 // GENERAR CARDS EN INDEX
 
 function imprimirCards(datos) {
-    
+
     $("#index-section__grid").html(``);
 
     for (let producto of datos) {
+
 
         $("#index-section__grid").append(
             `<article class="grid__article" id="${producto.id}">
@@ -88,21 +88,24 @@ function imprimirCards(datos) {
             </article>`);
     }
 }
-imprimirCards(BDD);
 
 
-function asideFiltros(){
-
+function asideFiltros() {
 
     // CHECKBOXES POPULAR / NUEVO
+    let BDDFilter = BDD;
 
     if ($("#aside__checkUno").is(":checked")) {
-        const BDDPopular = BDD.filter(producto => producto.popular === true);
-        imprimirCards(BDDPopular);
+        BDDFilter = BDDFilter.filter(producto => producto.popular == "true");
+        imprimirCards(BDDFilter);
     }
     if ($("#aside__checkDos").is(":checked")) {
-        const BDDNuevo = BDD.filter(producto => producto.nuevo === true);
-        imprimirCards(BDDNuevo);
+        BDDFilter = BDDFilter.filter(producto => producto.nuevo == "true");
+        imprimirCards(BDDFilter);
+    }
+    if ($("#aside__checkUno").is(":checked") && $("#aside__checkDos").is(":checked")) {
+        BDDFilter = BDDFilter.filter(producto => producto.nuevo == "true" && producto.popular == "true");
+        imprimirCards(BDDFilter);
     }
 
 
@@ -112,7 +115,7 @@ function asideFiltros(){
 
     if (selectValue == "3") {
 
-        let BDDOrdenado = BDD.sort((a, b) => {
+        let BDDOrdenado = BDDFilter.sort((a, b) => {
 
             if (a.precio > b.precio) {
                 return 1;
@@ -127,7 +130,7 @@ function asideFiltros(){
 
     if (selectValue == "4") {
 
-        let BDDOrdenado = BDD.sort((a, b) => {
+        let BDDOrdenado = BDDFilter.sort((a, b) => {
 
             if (a.precio > b.precio) {
                 return -1;
