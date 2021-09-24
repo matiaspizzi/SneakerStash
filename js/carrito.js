@@ -1,16 +1,24 @@
 
-var carrito = JSON.parse(localStorage.getItem("carrito"));
 const BDD = JSON.parse(localStorage.getItem("BaseDeDatos"));
+var carrito = JSON.parse(localStorage.getItem("carrito"));
+
 const precios = [];
 
-function imprimirCards(){
+console.log(carrito);
+//Si el carrito no se encuentra en el localStorage, sería = Null, por lo que se ejecuta esto:
+if (carrito == null) {
+    carrito = [];
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function imprimirCards() {
 
     $("#carrito-section__grid").html(``);
 
-    for(let producto of carrito){
+    for (let producto of carrito) {
 
         $("#carrito-section__grid").append(
-        `<div id="producto${producto.id}" class="grid__cardArticulo">
+            `<div id="producto${producto.id}" class="grid__cardArticulo">
         <a href="marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
             <img src="../${producto.img}" class="cardArticulo__Img" alt="AirJordan1RetroHighOGShadow2"> 
         </a>
@@ -29,7 +37,7 @@ function imprimirCards(){
             </div>
             <div class="select__cantidad">
                 <label for="cantidad">Cantidad: </label>
-                <select name="cantidad" id="cantidad${producto.id}" onchange="subtotal(${producto.precio}, ${producto.id})"class="form-select">
+                <select name="cantidad" id="cantidad${producto.id}" onchange="precioTotal(${producto.precio}, ${producto.id})"class="form-select">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -46,78 +54,34 @@ function imprimirCards(){
         </div>
         </div>`);
 
-        // IMPRIMIR EL PRECIO TOTAL
-        const i = producto.id;
-        precios[i] = producto.precio;
-        const total = precios.reduce((a, b) => Number(a) + Number(b), 0);
-        $("#precioTotal").html(total)
-    }     
+        precioTotal(producto.precio, producto.id);
+    }
 }
 
+imprimirCards();
 
+function precioTotal(precio, id) {
 
-function subtotal (precio, id){
-    
     // CALCULAR SUBTOTAL
     const cantidad = $(`#cantidad${id}`).val();
     const subtotal = cantidad * precio;
-    $(`#subtotal${id}`).html(`<b>Subtotal:</b> $`+subtotal);
-
-    
-    // AÑADIR SUBTOTAL AL TOTAL
-    const i = id;
-    precios[i] = subtotal;
+    $(`#subtotal${id}`).html(`<b>Subtotal:</b> $` + subtotal);
 
 
-    // SUMAR LOS SUBTOTALES E IMPRIMIR EL TOTAL
+    // SUMAR LOS SUBTOTALES
+    precios[id] = subtotal;
     const total = precios.reduce((a, b) => Number(a) + Number(b), 0);
-    $("#precioTotal").html(total)
+    $("#precioTotal").html(total);
 }
 
-
-imprimirCards ();
-
-function comprar (){
-    var carrito = JSON.parse(localStorage.getItem("carrito"));
-
-    const productosCheckout = carrito.map(producto => {
-        const cantidad = Number($(`#cantidad${producto.id}`).val())
-
-        return {
-            "title": producto.nombre,
-            "picture_url": producto.img,
-            "quantity": cantidad,
-            "currency_id": "ARS",
-            "unit_price": producto.precio
-        }
-    })
-
-    const elemento = { "items": productosCheckout }
-
-
-    $.ajaxSetup({
-        headers: {
-            'Authorization': ' Bearer TEST-7588094503560347-092206-5c0364812c16266535119d2d1a76a6a8-419734705',
-            'Content-Type': 'application/json'
-        }
-    });
-    
-    
-    $.post("https://api.mercadopago.com/checkout/preferences", JSON.stringify(elemento), (respuesta, status) => {
-        console.log(respuesta);
-        console.log(elemento);
-        if(status == "success"){
-            window.open(respuesta.init_point);
-        }
-    });
-}
 
 function quitarDelCarrito(id) {
 
     // QUITAR PRODUCTO DEL CARRITO
     carrito = carrito.filter(producto => producto.id !== id);
+    $(`#producto${id}`).slideUp(250);
+    guardarCarrito();
     console.log(carrito);
-    guardarCarrito ();
 
 
     // DESCONTAR PRECIO DEL TOTAL
@@ -125,15 +89,10 @@ function quitarDelCarrito(id) {
     precios[i] = 0;
     const total = precios.reduce((a, b) => Number(a) + Number(b), 0);
     $("#precioTotal").html(total)
-
-
-    // ANIMACION
-    $(`#producto${id}`).slideUp(250);
 }
 
 
-
-function guardarCarrito () {
+function guardarCarrito() {
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
