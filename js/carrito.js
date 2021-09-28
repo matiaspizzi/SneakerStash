@@ -1,18 +1,19 @@
 
-const BDD = JSON.parse(localStorage.getItem("BaseDeDatos"));
-
 var carrito = JSON.parse(localStorage.getItem("carrito"));
 
-const precios = [];
-
-console.log(carrito);
 //Si el carrito no se encuentra en el localStorage, sería = Null, por lo que se ejecuta esto:
+
 if (carrito == null) {
     carrito = [];
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-function imprimirCards() {
+console.log("carrito:");
+console.log(carrito);
+
+const precios = [];
+
+function imprimirCardsCarrito() {
 
     $("#carrito-section__grid").html(``);
 
@@ -61,48 +62,74 @@ function imprimirCards() {
     if(carrito.length == 0){
         $("#carrito-section__grid").append(
         `<div class="carrito__vacio">
-        <p><b>NO TIENES PRODUCTOS EN EL CARRITO</b></p>
+        <p><b>AÚN NO TIENES PRODUCTOS EN EL CARRITO.</b></p>
         </div>`);
+    }
+} 
+
+imprimirCardsCarrito();
+
+
+
+// AGREGAR PRODUCTO AL CARRITO
+
+function agregarAlCarrito(id) {
+
+    console.log("carrito:");
+    console.log(carrito);
+
+    $(`#${id}`).fadeOut("normal");
+    const productFoundBDD = BDD.find(producto => producto.id === id);
+
+    // Verifica si el producto ya está en el carrito
+    const productFoundCart = carrito.find(producto => producto.id === id);
+
+    // Verifica que el producto existe, y si el producto no se encuentra en él.
+    if (productFoundBDD != undefined && productFoundCart == null) {
+
+        carrito.push(productFoundBDD);
+        guardarCarrito();
     }
 }
 
-imprimirCards();
 
-function precioTotal(precio, id) {
-
-    // CALCULAR SUBTOTAL
-    const cantidad = $(`#cantidad${id}`).val();
-    const subtotal = cantidad * precio;
-    $(`#subtotal${id}`).html(`<b>Subtotal:</b> $` + subtotal);
-
-
-    // SUMAR LOS SUBTOTALES
-    precios[id] = subtotal;
-    const total = precios.reduce((a, b) => Number(a) + Number(b), 0);
-    $("#precioTotal").html(total);
-}
-
+// QUITAR PRODUCTO DEL CARRITO
 
 function quitarDelCarrito(id) {
 
-    // QUITAR PRODUCTO DEL CARRITO
     carrito = carrito.filter(producto => producto.id !== id);
     $(`#producto${id}`).slideUp(250);
     guardarCarrito();
+
+    console.log("carrito:");
     console.log(carrito);
 
-
-    // DESCONTAR PRECIO DEL TOTAL
-    const i = id;
-    precios[i] = 0;
-    const total = precios.reduce((a, b) => Number(a) + Number(b), 0);
+    // Actualizar precio total
+    precios[id] = 0;
+    let total = precios.reduce((a, b) => Number(a) + Number(b), 0);
     $("#precioTotal").html(total)
 }
 
 
-function guardarCarrito() {
+// GUARDAR CARRITO EN LOCAL
 
+function guardarCarrito() {
+    
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 
+// CALCULAR PRECIO TOTAL
+
+function precioTotal(precio, id) {
+
+    // Subtotales
+    let cantidad = $(`#cantidad${id}`).val();
+    let subtotal = cantidad * precio;
+    $(`#subtotal${id}`).html(`<b>Subtotal:</b> $` + subtotal);
+
+    // Sumar subtotales
+    precios[id] = subtotal;
+    let total = precios.reduce((a, b) => Number(a) + Number(b), 0);
+    $("#precioTotal").html(total);
+}

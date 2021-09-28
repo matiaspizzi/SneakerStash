@@ -2,7 +2,6 @@
 
 // class Producto {
 //     constructor(id, nuevo, popular, nombre, marca, precio, stock, img, img_dos, img_tres, img_cuatro, descripcion) {
-
 //         this.id = id;
 //         this.nuevo = nuevo;
 //         this.popular = popular;
@@ -85,42 +84,73 @@ function imprimirCards(datos) {
                 <p class="article__precio">$${producto.precio}</p>
                 <div class="article__buttons">
                     <button type="button" class="btn btn-light" onclick="agregarAlCarrito('${producto.id}')"><img src="Multimedia/iconos/cart-plus-solid.svg" class="button__cart" alt="icono carrito"> </button>
-                    <button type="button" class="btn btn-light" onclick="fillSVG('${producto.id}')"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="button__heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" id="" class="heart__svg${producto.id} " d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg></button>
+                    <button type="button" class="btn btn-light" onclick="agregarAfavoritos('${producto.id}')"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" class="button__heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" id="" class="heart__svg${producto.id}" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg></button>
                 </div>
                 </article>`);
+
+
+            if(favoritos.length > 0){
+
+                for(let buttons of favoritos){
+
+                    $(`.heart__svg${buttons.id}`).css("fill","red");
+                }
+            }   
+            else{
+
+                $(`.heart__svg${favoritos.id}`).css("fill","black");
+            }
     }
 }
 
 
-function fillSVG(id) {
-    console.log("hola")
-    $(`.heart__svg${id}`).toggleClass("fill__svg");
-};
+
 
 function asideFiltros() {
 
     // CHECKBOXES POPULAR / NUEVO
     let BDDFilter = BDD;
 
-    if ($("#aside__checkUno").is(":checked")) {
+    let checkUno = $("#aside__checkUno").is(":checked");
+    let checkDos = $("#aside__checkDos").is(":checked");
+
+
+    if (checkUno == true) {
         BDDFilter = BDDFilter.filter(producto => producto.popular == "true");
         imprimirCards(BDDFilter);
     }
-    if ($("#aside__checkDos").is(":checked")) {
+    if (checkDos == true) {
         BDDFilter = BDDFilter.filter(producto => producto.nuevo == "true");
         imprimirCards(BDDFilter);
     }
-    if ($("#aside__checkUno").is(":checked") && $("#aside__checkDos").is(":checked")) {
+    if (checkUno == true && checkDos == true) {
         BDDFilter = BDDFilter.filter(producto => producto.nuevo == "true" && producto.popular == "true");
+        imprimirCards(BDDFilter);
+    }
+
+    // FILTRO DE GENERO
+
+    let selectValueGender = $("#asideGenero").val();
+
+    if (selectValueGender == 0) {
+        
+        imprimirCards(BDDFilter);
+    }
+    if (selectValueGender == 1) {
+        BDDFilter = BDDFilter.filter(producto => producto.genero == "female");
+        imprimirCards(BDDFilter);
+    }
+    if (selectValueGender == 2) {
+        BDDFilter = BDDFilter.filter(producto => producto.genero == "male");
         imprimirCards(BDDFilter);
     }
 
 
     // ORDENAMIENTO POR PRECIO
 
-    const selectValue = $("#asideOrden").val();
+    let selectValueSortBy = $("#asideOrden").val();
 
-    if (selectValue == "3") {
+    if (selectValueSortBy == "3") {
 
         let BDDOrdenado = BDDFilter.sort((a, b) => {
 
@@ -135,7 +165,7 @@ function asideFiltros() {
         imprimirCards(BDDOrdenado);
     }
 
-    if (selectValue == "4") {
+    if (selectValueSortBy == "4") {
 
         let BDDOrdenado = BDDFilter.sort((a, b) => {
 
@@ -152,34 +182,4 @@ function asideFiltros() {
 }
 
 
-
-
-// AGREGAR AL CARRITO
-var carrito = [];
-carrito = JSON.parse(localStorage.getItem("carrito"));
-
-console.log(carrito);
-//Si el carrito no se encuentra en el localStorage, sería = Null, por lo que se ejecuta esto:
-if (carrito == null) {
-    carrito = [];
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-}
-
-function agregarAlCarrito(id) {
-
-    $(`#${id}`).fadeOut("normal");
-
-    console.log(carrito);
-    const productFoundBDD = BDD.find(producto => producto.id === id);
-
-    // Verifica si el producto ya está en el carrito
-    const productFoundCart = carrito.find(producto => producto.id === id);
-
-    // Verifica que el producto existe, si el carrito existe y si el producto no se encuentra en él.
-    if (productFoundBDD != undefined && carrito != null && productFoundCart == null) {
-
-        carrito.push(productFoundBDD);
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-    }
-}
 

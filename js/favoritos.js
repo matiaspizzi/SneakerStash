@@ -1,18 +1,11 @@
-const BDD = [];
 
+const BBB = [];
 
-$.getJSON("data/productos.json", function (productos) {
-
-    productos.forEach(producto => {
-
-        BDD.push(producto);
-    });
-});
 
 var favoritos = JSON.parse(localStorage.getItem("favoritos"));
 
 
-
+console.log("favoritos:");
 console.log(favoritos);
 
 if (favoritos == null) {
@@ -20,9 +13,9 @@ if (favoritos == null) {
     localStorage.setItem("favoritos", JSON.stringify(favoritos));
 }
 
-imprimirCards();
+imprimirCardsFavoritos();
 
-function imprimirCards() {
+function imprimirCardsFavoritos() {
 
     $("#favoritos-section__grid").html(``);
 
@@ -48,31 +41,39 @@ function imprimirCards() {
     }
 }
 
-var carrito = [];
-carrito = JSON.parse(localStorage.getItem("carrito"));
 
-console.log(carrito);
+// AGREGAR A FAVORITOS
 
-if (carrito == null) {
-    carrito = [];
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+var favoritos = [];
+favoritos = JSON.parse(localStorage.getItem("favoritos"));
+
+if (favoritos == null) {
+    favoritos = [];
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
 }
 
-function agregarAlCarrito(id) {
+function agregarAfavoritos(id) {
 
-    $(`#producto${id}`).fadeOut("normal");
+    console.log("favoritos:");
+    console.log(favoritos);
+    let productFoundBDD = BDD.find(producto => producto.id === id);
 
-    console.log(carrito);
-    const productFoundBDD = BDD.find(producto => producto.id === id);
+    // Busca si el producto esta dentro de favoritos
+    let productFoundFavs = favoritos.find(producto => producto.id === id);
 
+    // Verifica que el producto existe, y si el producto no se encuentra en él.
+    if (productFoundBDD != undefined && productFoundFavs == null) {
 
-    const productFoundCart = carrito.find(producto => producto.id === id);
+        $(`.heart__svg${id}`).css("fill","red");
+        favoritos.push(productFoundBDD);
+        localStorage.setItem("favoritos", JSON.stringify(favoritos));
+    }
 
+    if(productFoundFavs != null){
 
-    if (productFoundBDD != undefined && carrito != null && productFoundCart == null) {
-
-        carrito.push(productFoundBDD);
-        localStorage.setItem("carrito", JSON.stringify(carrito));
+        $(`.heart__svg${id}`).css("fill","black");
+        favoritos = favoritos.filter(producto => producto.id !== id);
+        localStorage.setItem("favoritos", JSON.stringify(favoritos));
     }
 }
 
@@ -81,6 +82,8 @@ function quitarDeFavoritos(id) {
     favoritos = favoritos.filter(producto => producto.id !== id);
     $(`#producto${id}`).slideUp(250);
     guardarFavoritos();
+
+    console.log("favoritos:");
     console.log(favoritos);
 }
 

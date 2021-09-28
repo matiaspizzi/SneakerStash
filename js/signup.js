@@ -29,7 +29,7 @@ function validarContrasenia() {
         return true;
     } else {
         console.log("Rellene el campo/las contraseñas no coinciden");
-        document.getElementById("usuario__recontrasenia").style.borderBottom = 
+        document.getElementById("usuario__recontrasenia").style.borderBottom =
             "1px solid red";
         return false;
     }

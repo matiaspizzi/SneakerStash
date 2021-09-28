@@ -25,18 +25,18 @@ function validarUsuario() {
         console.log("mail ok");
         document.getElementById("usuario__email").style.borderBottom =
             "1px solid rgb(222, 222, 222)";
-        
-        const contrasenia = $("#usuario__contrasenia").val();
 
-        if(found.contrasenia == contrasenia){
+        let contrasenia = $("#usuario__contrasenia").val();
+
+        if (found.contrasenia == contrasenia) {
             console.log("contrasenia ok");
             document.getElementById("usuario__contrasenia").style.borderBottom =
-            "1px solid rgb(222, 222, 222)";
+                "1px solid rgb(222, 222, 222)";
 
         } else {
             console.log("contrasenia incorrecta");
             document.getElementById("usuario__contrasenia").style.borderBottom =
-            "1px solid red";
+                "1px solid red";
         }
     }
 }
