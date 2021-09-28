@@ -60,9 +60,14 @@ function imprimirCardsCarrito() {
     }
 
     if(carrito.length == 0){
-        $("#carrito-section__grid").append(
+
+        // Borra boton de comprar
+        $("#carrito-comprar").html(``);
+
+        // Imprime mensaje
+        $("#carrito-section__grid").html(
         `<div class="carrito__vacio">
-        <p><b>AÚN NO TIENES PRODUCTOS EN EL CARRITO.</b></p>
+        <p><b>NO TIENES PRODUCTOS EN EL CARRITO.</b></p>
         </div>`);
     }
 } 
@@ -74,6 +79,8 @@ imprimirCardsCarrito();
 // AGREGAR PRODUCTO AL CARRITO
 
 function agregarAlCarrito(id) {
+
+    SAAgregarCarrito();
 
     console.log("carrito:");
     console.log(carrito);
@@ -97,8 +104,14 @@ function agregarAlCarrito(id) {
 
 function quitarDelCarrito(id) {
 
+    SAQuitarCarrito();
+
     carrito = carrito.filter(producto => producto.id !== id);
-    $(`#producto${id}`).slideUp(250);
+    $(`#producto${id}`).slideUp(250, () =>{
+        
+        imprimirCardsCarrito();
+    });
+
     guardarCarrito();
 
     console.log("carrito:");
@@ -108,13 +121,14 @@ function quitarDelCarrito(id) {
     precios[id] = 0;
     let total = precios.reduce((a, b) => Number(a) + Number(b), 0);
     $("#precioTotal").html(total)
+
 }
 
 
 // GUARDAR CARRITO EN LOCAL
 
 function guardarCarrito() {
-    
+
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 

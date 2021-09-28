@@ -11,8 +11,6 @@ body {
     flex-direction: column;
     height: 100%;
 
-    
-
     a {
         font-family: 'Ubuntu', sans-serif;
         text-decoration: none;
@@ -20,6 +18,10 @@ body {
     }
 }
 
+
+section{
+    min-height: 65vh;
+}
 
 .bodyGrid{
     display: grid;
@@ -30,7 +32,10 @@ body {
             "nav" 
             "main" 
             "footer";
+            
 }
+
+
 
 
 

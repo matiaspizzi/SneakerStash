@@ -1,4 +1,7 @@
 function comprar() {
+
+    SAComprar();
+    
     var carrito = JSON.parse(localStorage.getItem("carrito"));
 
     const productosCheckout = carrito.map((producto) => {

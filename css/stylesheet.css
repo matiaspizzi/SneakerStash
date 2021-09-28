@@ -14,6 +14,9 @@ body {
     text-decoration: none;
     color: black; }
 
+section {
+  min-height: 65vh; }
+
 .bodyGrid {
   display: grid;
   grid-template-columns: 100%;
