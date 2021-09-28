@@ -11,9 +11,7 @@ body {
     flex-direction: column;
     height: 100%;
 
-    #button__cart{
-        width: 1.3em;
-    }
+    
 
     a {
         font-family: 'Ubuntu', sans-serif;
@@ -21,6 +19,7 @@ body {
         color: black;
     }
 }
+
 
 .bodyGrid{
     display: grid;
@@ -120,7 +119,6 @@ nav {
   
         &:hover {
             transform: scale(1.5);
-            fill: royalblue;
         }
     }
 
@@ -335,7 +333,7 @@ aside {
             .grid__article {
                 box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
                 background-color: white;
-                padding: 1.25em;
+                padding: 1.45em;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -343,6 +341,25 @@ aside {
                 width: 18.75em;
                 height: 21.87em;
                 border-radius: 4px;
+
+                .article__buttons{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-around;
+
+                    .button__cart, .button__heart{
+                        width: 1.3em;
+                        transition: all 0.25s;
+                        
+                        .fill__svg{
+                            fill:red;
+                        }
+
+                        &:hover {
+                            transform: scale(1.5);
+                        }
+                    }
+                }
 
                 .article__imagen {
                     width: 15.625rem;
@@ -635,16 +652,16 @@ aside {
                 border-radius: 5px;
                 display: grid;
                 width: 100%;
-                height: max-content;
+                height: 9.375rem;
                 background-color: white;
                 box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
-                grid-template-columns: 14.375rem 200px 10.625rem;
-                grid-template-rows: max-content;
+                grid-template-columns: 14.375rem 12.5rem 10.625rem;
+                grid-template-rows: 100%;
                 grid-template-areas: "Img Datos Cancel";
                 align-items: center;
+                justify-content: center;
 
                 .cardArticulo__Img{
-                    height: 12.5em;
                     width: 12.5em;
                     grid-area: Img;
                     padding-left: 0.937rem;
@@ -711,6 +728,21 @@ aside {
             grid-column-gap: 0.625em;
             grid-row-gap: 0.625em;
             
+            .carrito__vacio{
+                display: flex;
+                flex-direction: column;
+                width: max-content;
+                background-color: white;
+                padding: 25px;
+                margin: 160px 0 160px 0;
+                border-radius: 5px;
+                box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
+
+                p{
+                    margin: 0;
+                }
+            }
+
             .grid__cardArticulo{
                 border-radius: 5px;
                 display: grid;
@@ -1130,9 +1162,10 @@ aside {
                     grid-template-areas: "Img       Datos       Cancel"
                                          "Select    Subtotal    Cancel";
                     align-items: center;
+                    height: 100%;
     
                     .cardArticulo__Img{
-                        height: 12.5em;
+                        
                         width: 12.5em;
                     }
     

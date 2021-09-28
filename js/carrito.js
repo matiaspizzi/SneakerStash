@@ -21,7 +21,7 @@ function imprimirCards() {
         $("#carrito-section__grid").append(
             `<div id="producto${producto.id}" class="grid__cardArticulo">
         <a href="marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
-            <img src="../${producto.img}" class="cardArticulo__Img" alt="AirJordan1RetroHighOGShadow2"> 
+            <img src="${producto.img}" class="cardArticulo__Img" alt="AirJordan1RetroHighOGShadow2"> 
         </a>
         <div class="cardArticulo__datos">
             <h2 class="article__nombre">${producto.nombre}</h2>
@@ -56,6 +56,13 @@ function imprimirCards() {
         </div>`);
 
         precioTotal(producto.precio, producto.id);
+    }
+
+    if(carrito.length == 0){
+        $("#carrito-section__grid").append(
+        `<div class="carrito__vacio">
+        <p><b>NO TIENES PRODUCTOS EN EL CARRITO</b></p>
+        </div>`);
     }
 }
 

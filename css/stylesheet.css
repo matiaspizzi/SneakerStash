@@ -9,8 +9,6 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%; }
-  body #button__cart {
-    width: 1.3em; }
   body a {
     font-family: 'Ubuntu', sans-serif;
     text-decoration: none;
@@ -83,8 +81,7 @@ nav {
     height: 1em;
     transition: all 0.25s; }
     nav .nav__icono:hover {
-      transform: scale(1.5);
-      fill: royalblue; }
+      transform: scale(1.5); }
   nav .nav__lista {
     padding: 0 3.12em 0 3.12em;
     list-style-type: none;
@@ -228,7 +225,7 @@ aside {
       .index__main .index__section .section__grid .grid__article {
         box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
         background-color: white;
-        padding: 1.25em;
+        padding: 1.45em;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -236,6 +233,17 @@ aside {
         width: 18.75em;
         height: 21.87em;
         border-radius: 4px; }
+        .index__main .index__section .section__grid .grid__article .article__buttons {
+          width: 100%;
+          display: flex;
+          justify-content: space-around; }
+          .index__main .index__section .section__grid .grid__article .article__buttons .button__cart, .index__main .index__section .section__grid .grid__article .article__buttons .button__heart {
+            width: 1.3em;
+            transition: all 0.25s; }
+            .index__main .index__section .section__grid .grid__article .article__buttons .button__cart .fill__svg, .index__main .index__section .section__grid .grid__article .article__buttons .button__heart .fill__svg {
+              fill: red; }
+            .index__main .index__section .section__grid .grid__article .article__buttons .button__cart:hover, .index__main .index__section .section__grid .grid__article .article__buttons .button__heart:hover {
+              transform: scale(1.5); }
         .index__main .index__section .section__grid .grid__article .article__imagen {
           width: 15.625rem;
           align-content: center; }
@@ -434,15 +442,15 @@ aside {
         border-radius: 5px;
         display: grid;
         width: 100%;
-        height: max-content;
+        height: 9.375rem;
         background-color: white;
         box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
-        grid-template-columns: 14.375rem 200px 10.625rem;
-        grid-template-rows: max-content;
+        grid-template-columns: 14.375rem 12.5rem 10.625rem;
+        grid-template-rows: 100%;
         grid-template-areas: "Img Datos Cancel";
-        align-items: center; }
+        align-items: center;
+        justify-content: center; }
         .favoritos__main .main__section .section__grid .grid__cardArticulo .cardArticulo__Img {
-          height: 12.5em;
           width: 12.5em;
           grid-area: Img;
           padding-left: 0.937rem; }
@@ -491,6 +499,17 @@ aside {
       grid-template-areas: "Articulo";
       grid-column-gap: 0.625em;
       grid-row-gap: 0.625em; }
+      .carrito__main .main__section .section__grid .carrito__vacio {
+        display: flex;
+        flex-direction: column;
+        width: max-content;
+        background-color: white;
+        padding: 25px;
+        margin: 160px 0 160px 0;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26); }
+        .carrito__main .main__section .section__grid .carrito__vacio p {
+          margin: 0; }
       .carrito__main .main__section .section__grid .grid__cardArticulo {
         border-radius: 5px;
         display: grid;
@@ -734,9 +753,9 @@ aside {
     grid-template-columns: 18.75rem 14.375rem 9.375rem;
     grid-template-rows: 10.875rem 5rem;
     grid-template-areas: "Img       Datos       Cancel" "Select    Subtotal    Cancel";
-    align-items: center; }
+    align-items: center;
+    height: 100%; }
     .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__Img {
-      height: 12.5em;
       width: 12.5em; }
     .carrito__main .main__section .section__grid .grid__cardArticulo .cardArticulo__select {
       border-top: 1px solid #a1a1a1;
