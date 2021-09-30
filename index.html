@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
     <title>Sneaker Stash - Compra sneakers auténticos</title>
@@ -21,6 +20,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+
     <script src="js/sweetAlert.js" defer></script>
     <script src="js/carrito.js" defer></script>
     <script src="js/favoritos.js" defer></script>
@@ -82,8 +82,8 @@
         <!-- INICIO ASIDE -->
         <aside class="main__aside">
             <ul class="aside__lista">
-                <li>
-                    <button type="button" class="btn btn-light" onclick="asideFiltros()">Aplicar Filtros</button>
+                <li class="aside__item">
+                    <button type="button" class="aplicar btn btn-light" onclick="asideFiltros()"><p>Aplicar Filtros</p></button>
                 </li>
                 <ul class="lista_checkboxes">
                     <li class="form-check">
@@ -103,8 +103,8 @@
                     <p>Ordenar por:</p>
                     <select id="asideOrden" class="form-select">
                         <option value="2">--</option>
-                        <option value="3">Precio (Bajo - Alto)</option>
-                        <option value="4">Precio (Alto - Bajo)</option>
+                        <option value="3">Menor Precio</option>
+                        <option value="4">Mayor Precio</option>
                     </select>
                 </li>
                 <li class="aside__item">

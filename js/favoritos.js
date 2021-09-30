@@ -1,12 +1,6 @@
 
-const BBB = [];
-
 
 var favoritos = JSON.parse(localStorage.getItem("favoritos"));
-
-
-console.log("favoritos:");
-console.log(favoritos);
 
 if (favoritos == null) {
     favoritos = [];
@@ -38,6 +32,15 @@ function imprimirCardsFavoritos() {
                     </div>
                 </div>`
         );
+    }
+
+    if(favoritos.length == 0){
+
+        // Imprime mensaje
+        $("#favoritos-main__section").html(
+        `<div class="favoritos__vacio">
+        <p><b>NO TIENES PRODUCTOS FAVORITOS.</b></p>
+        </div>`);
     }
 }
 
@@ -80,11 +83,12 @@ function agregarAfavoritos(id) {
 function quitarDeFavoritos(id) {
 
     favoritos = favoritos.filter(producto => producto.id !== id);
-    $(`#producto${id}`).slideUp(250);
-    guardarFavoritos();
+    $(`#producto${id}`).slideUp(250, () =>{
 
-    console.log("favoritos:");
-    console.log(favoritos);
+        imprimirCardsFavoritos();
+    });
+
+    guardarFavoritos();
 }
 
 function guardarFavoritos() {

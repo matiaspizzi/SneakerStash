@@ -14,6 +14,9 @@ body {
     text-decoration: none;
     color: black; }
 
+.swal2-popup {
+  border: 1px solid black !important; }
+
 section {
   min-height: 65vh; }
 
@@ -191,6 +194,12 @@ aside {
       padding: 2em; }
   aside .aside__item {
     padding: 1.25em 0 1.25em 0; }
+    aside .aside__item .aplicar {
+      margin: 0;
+      border-bottom: 2px solid black;
+      transition: all 0.45s; }
+      aside .aside__item .aplicar:hover {
+        border-bottom: 2px solid rgba(255, 255, 255, 0); }
     aside .aside__item p {
       margin: 0; }
     aside .aside__item .form-select {
@@ -429,7 +438,17 @@ aside {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    align-items: center; }
+    .favoritos__main .main__section .favoritos__vacio {
+      width: max-content;
+      height: max-content;
+      background-color: white;
+      padding: 25px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26); }
+      .favoritos__main .main__section .favoritos__vacio p {
+        margin: 0; }
     .favoritos__main .main__section .section__grid {
       align-content: center;
       align-items: center;
@@ -438,14 +457,13 @@ aside {
       width: max-content;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
-      grid-template-areas: "Articulo Articulo" "Articulo Articulo" "Articulo Articulo";
       grid-column-gap: 0.625em;
       grid-row-gap: 0.625em; }
       .favoritos__main .main__section .section__grid .grid__cardArticulo {
         border-radius: 5px;
         display: grid;
         width: 100%;
-        height: 9.375rem;
+        height: 100%;
         background-color: white;
         box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
         grid-template-columns: 14.375rem 12.5rem 10.625rem;
@@ -615,7 +633,7 @@ aside {
 .signUp__section .section__form, .login__section .section__form, .contacto__section .section__form {
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
   width: 34.375rem;
-  margin: 2.5rem 0.625rem 2.5rem 0.625rem;
+  margin: 2rem 0.625rem 2rem 0.625rem;
   padding: 1.25rem;
   background-color: white;
   border-radius: 4px;
@@ -711,12 +729,16 @@ aside {
       background-color: #aed581; }
 
 .login__section .section__form {
-  grid-template-rows: 3.125rem 7.5rem 7.5rem 7.5rem;
+  height: max-content;
+  grid-template-rows: 3.125rem 6.4rem 6.4rem 6.4rem 0;
   grid-template-areas: "header" "mid"  "bot" "submit"; }
   .login__section .section__form .form__mid .mid__email {
     width: 21.875rem; }
-  .login__section .section__form .form__bot .bot__contrasenia {
-    width: 21.875rem; }
+  .login__section .section__form .form__bot {
+    display: flex;
+    flex-direction: column; }
+    .login__section .section__form .form__bot .bot__contrasenia {
+      width: 21.875rem; }
   .login__section .section__form .form__submit .button__login, .login__section .section__form .form__submit .button__signup {
     padding: 10px;
     width: max-content;

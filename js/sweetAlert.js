@@ -4,11 +4,10 @@ async function SAAgregarCarrito(){
 	Swal.fire({
         title: "Producto añadido al carrito",
         icon: "success",
-        timer: 2300,
+        timer: 2500,
         timerProgressBar: true,
-		background: "rgb(235, 235, 235)",
 		toast: true,
-        position: "bottom-end",
+        position: "top-end",
         showConfirmButton: false,
     });
 }
@@ -17,10 +16,10 @@ async function SAQuitarCarrito(){
 	Swal.fire({
         title: "Producto retirado del carrito",
         icon: "error",
-        timer: 2300,
+        timer: 2500,
         timerProgressBar: true,
 		toast: true,
-        position: "bottom-end",
+        position: "top-end",
         showConfirmButton: false,
     });
 }
@@ -29,10 +28,33 @@ async function SAComprar(){
 	Swal.fire({
         title: "Procesando compra",
         icon: "success",
-        timer: 6000,
+        timer: 4000,
         timerProgressBar: true,
         showConfirmButton: false,
     });
+}
+
+async function SASignup(){
+	Swal.fire({
+        title: "Registro exitoso",
+        icon: "success",
+
+        timerProgressBar: true,
+        showConfirmButton: false,
+    });
+
+}
+
+async function SALogin(){
+	Swal.fire({
+        title: "Inicio de sesión exitoso",
+        icon: "success",
+
+        timerProgressBar: true,
+        showConfirmButton: false,
+    });
+
+	
 }
 
 // Swal.fire({

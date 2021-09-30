@@ -18,18 +18,55 @@ class Usuario {
     }
 }
 
+function validarNombre() {
+    let nombre = $("#usuario__nombre").val();
+
+    if (nombre != undefined && nombre != "") {
+
+        
+        document.getElementById("usuario__nombre").style.borderBottom =
+            "1px solid rgb(222, 222, 222)";
+        return true;
+    } else {
+
+        document.getElementById("usuario__nombre").style.borderBottom =
+            "1px solid red";
+        return false;
+    }
+}
+
+function validarApellido() {
+    let apellido = $("#usuario__apellido").val();
+
+    if (apellido != undefined && apellido != "") {
+
+        document.getElementById("usuario__apellido").style.borderBottom =
+            "1px solid rgb(222, 222, 222)";
+        return true;
+    } else {
+
+        document.getElementById("usuario__apellido").style.borderBottom =
+            "1px solid red";
+        return false;
+    }
+}
+
 function validarContrasenia() {
     let contrasenia = $("#usuario__contrasenia").val();
     let recontrasenia = $("#usuario__recontrasenia").val();
 
-    if (contrasenia == recontrasenia && contrasenia != undefined) {
-        console.log("contraseña validada");
+    if (contrasenia == recontrasenia && contrasenia != undefined && contrasenia != "") {
+
+        document.getElementById("usuario__contrasenia").style.borderBottom =
+            "1px solid rgb(222, 222, 222)";
         document.getElementById("usuario__recontrasenia").style.borderBottom =
             "1px solid rgb(222, 222, 222)";
         return true;
     } else {
-        console.log("Rellene el campo/las contraseñas no coinciden");
+
         document.getElementById("usuario__recontrasenia").style.borderBottom =
+            "1px solid red";
+        document.getElementById("usuario__contrasenia").style.borderBottom =
             "1px solid red";
         return false;
     }
@@ -40,12 +77,12 @@ function validarMail() {
     let found = BDU.find((usuario) => usuario.email == mail);
 
     if (mail != undefined && found != null) {
-        console.log("Rellene el campo/Este mail ya se ha registrado");
+
         document.getElementById("usuario__email").style.borderBottom =
             "1px solid red";
         return false;
     } else {
-        console.log("mail ok");
+
         document.getElementById("usuario__email").style.borderBottom =
             "1px solid rgb(222, 222, 222)";
         return true;
@@ -57,12 +94,12 @@ function validarTelefono() {
     let found = BDU.find((usuario) => usuario.telefono == tel);
 
     if (tel != undefined && found != null) {
-        console.log("Rellene el campo/Este telefono ya se ha registrado");
+
         document.getElementById("usuario__telefono").style.borderBottom =
             "1px solid red";
         return false;
     } else {
-        console.log("telefono ok");
+
         document.getElementById("usuario__telefono").style.borderBottom =
             "1px solid rgb(222, 222, 222)";
         return true;
@@ -71,9 +108,11 @@ function validarTelefono() {
 
 function crearUsuario() {
     if (
-        validarContrasenia() == true &&
+        validarNombre() == true &&
+        validarApellido() == true &&
         validarMail() == true &&
-        validarTelefono() == true
+        validarTelefono() == true &&
+        validarContrasenia() == true
     ) {
         let nombre = $("#usuario__nombre").val();
         let apellido = $("#usuario__apellido").val();
@@ -85,7 +124,9 @@ function crearUsuario() {
 
         var BDUJSON = JSON.stringify(BDU);
         localStorage.setItem("BaseDeUsuarios", BDUJSON);
-        console.log(BDUJSON);
+
+        SASignup();
+
     } else {
         console.log("ERROR EN REGISTRO");
     }

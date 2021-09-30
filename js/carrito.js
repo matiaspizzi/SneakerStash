@@ -1,8 +1,6 @@
 
 var carrito = JSON.parse(localStorage.getItem("carrito"));
 
-//Si el carrito no se encuentra en el localStorage, sería = Null, por lo que se ejecuta esto:
-
 if (carrito == null) {
     carrito = [];
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -74,8 +72,6 @@ function imprimirCardsCarrito() {
 
 imprimirCardsCarrito();
 
-
-
 // AGREGAR PRODUCTO AL CARRITO
 
 function agregarAlCarrito(id) {
@@ -108,7 +104,7 @@ function quitarDelCarrito(id) {
 
     carrito = carrito.filter(producto => producto.id !== id);
     $(`#producto${id}`).slideUp(250, () =>{
-        
+
         imprimirCardsCarrito();
     });
 

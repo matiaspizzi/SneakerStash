@@ -17,6 +17,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/0d0f65c00e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/stylesheet.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <script src="../js/sweetAlert.js" defer></script>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/carrito.js" defer></script>
+    <script src="../js/favoritos.js" defer></script>
 </head>
 
 <body class="animate__animated animate__fadeIn">
@@ -71,23 +80,14 @@
 
     <!-- INICIO MAIN/SECTION -->
     <main class="favoritos__main">
-        <section class="main__section">
-            <div class="section__grid">
-                <div class="grid__cardArticulo">
-                    <a href="marcas/AirJordan/AirJordan1RetroHighOGShadow2.html">
-                        <img src="../Multimedia/marcas/AirJordan/AirJordan1RetroHighOGShadow2-0/imagen1.jpg" class="cardArticulo__Img" alt="Logo Jordan"> 
-                    </a>
+        <section id="favoritos-main__section" class="main__section">
+            <div id="favoritos-section__grid" class="section__grid">
+                
+                <!-- ACA SE IMPRIMEN LAS CARDS -->
 
-                    <div class="cardArticulo__datos">
-                        <h2 class="article__nombre">Air Jordan 1 Retro High OG Shadow 2.0</h2>
-                        <p class="article__precio">Precio</p>
-                    </div>
+            </div>
+            <div >
 
-                    <div class="cardArticulo__buttons">
-                        <button type="button" class="btn btn-outline-light">Agregar <img src="../Multimedia/iconos/cart-plus-solid.svg" class="cardArticulo__icono" alt="icono carrito"></button>
-                        <button type="button" class="btn btn-outline-light">Eliminar <img src="../Multimedia/iconos/times-solid.svg" class="cardArticulo__icono" alt="icono cruz"></button>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
@@ -128,8 +128,5 @@
             </ul>
         </div>
     </footer>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -54,7 +54,7 @@
 const BDD = [];
 
 
-$.getJSON("data/productos.json", function (productos) {
+$.getJSON("/data/productos.json", function (productos) {
 
     productos.forEach(producto => {
 
@@ -63,8 +63,6 @@ $.getJSON("data/productos.json", function (productos) {
 
     imprimirCards(BDD);
 });
-
-
 
 // GENERAR CARDS EN INDEX
 
