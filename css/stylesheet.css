@@ -104,7 +104,9 @@ nav {
       justify-items: center; }
       nav .nav__lista .nav__item .nav__buscador {
         padding: 4px;
-        border: 1px solid #dedede; }
+        border: 1px solid #a2a2a2; }
+        nav .nav__lista .nav__item .nav__buscador::placeholder {
+          color: black; }
       nav .nav__lista .nav__item a p {
         margin: 0;
         border-bottom: 2px solid rgba(0, 0, 0, 0);
@@ -118,7 +120,7 @@ footer {
   z-index: 900;
   box-shadow: 0 -10px 5px -10px rgba(0, 0, 0, 0.26);
   grid-area: footer;
-  background-color: #ffffff;
+  background-color: white;
   border-top: 1px solid #dedede;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
