@@ -106,6 +106,7 @@ function validarTelefono() {
     }
 }
 
+//si todas las validaciones son correctas se crea el usuario
 function crearUsuario() {
     if (
         validarNombre() == true &&
@@ -125,6 +126,7 @@ function crearUsuario() {
         var BDUJSON = JSON.stringify(BDU);
         localStorage.setItem("BaseDeUsuarios", BDUJSON);
 
+        //popup de sweetalert
         SASignup();
 
     } else {

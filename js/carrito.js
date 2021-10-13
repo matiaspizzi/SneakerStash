@@ -11,6 +11,8 @@ console.log(carrito);
 
 const precios = [];
 
+// IMPRIME CARDS DEL PRODUCTO EN EL CARRITO
+
 function imprimirCardsCarrito() {
 
     $("#carrito-section__grid").html(``);
@@ -121,7 +123,7 @@ function quitarDelCarrito(id) {
 }
 
 
-// GUARDAR CARRITO EN LOCAL
+// GUARDAR CARRITO EN LOCAL STORAGE
 
 function guardarCarrito() {
 
@@ -143,3 +145,4 @@ function precioTotal(precio, id) {
     let total = precios.reduce((a, b) => Number(a) + Number(b), 0);
     $("#precioTotal").html(total);
 }
+

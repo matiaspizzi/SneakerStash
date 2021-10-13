@@ -1,5 +1,7 @@
 function comprar() {
 
+
+    // POP UP DE SWEET ALERT
     SAComprar();
     
     var carrito = JSON.parse(localStorage.getItem("carrito"));

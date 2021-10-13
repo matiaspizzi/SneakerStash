@@ -2,12 +2,15 @@
 
 var favoritos = JSON.parse(localStorage.getItem("favoritos"));
 
+// VERIFICA SI FAVORITOS EXISTE EN LOCAL STORAGE
+
 if (favoritos == null) {
     favoritos = [];
     localStorage.setItem("favoritos", JSON.stringify(favoritos));
 }
 
-imprimirCardsFavoritos();
+
+// IMPRIME CARDS DEL PRODUCTO EN FAVORITOS
 
 function imprimirCardsFavoritos() {
 
@@ -44,8 +47,9 @@ function imprimirCardsFavoritos() {
     }
 }
 
+imprimirCardsFavoritos();
 
-// AGREGAR A FAVORITOS
+// AGREGA PRODUCTO A FAVORITOS
 
 var favoritos = [];
 favoritos = JSON.parse(localStorage.getItem("favoritos"));
@@ -61,10 +65,9 @@ function agregarAfavoritos(id) {
     console.log(favoritos);
     let productFoundBDD = BDD.find(producto => producto.id === id);
 
-    // Busca si el producto esta dentro de favoritos
     let productFoundFavs = favoritos.find(producto => producto.id === id);
 
-    // Verifica que el producto existe, y si el producto no se encuentra en él.
+    // Verifica que el producto existe, y si el producto no se encuentra en favoritos.
     if (productFoundBDD != undefined && productFoundFavs == null) {
 
         $(`.heart__svg${id}`).css("fill","red");
@@ -79,6 +82,8 @@ function agregarAfavoritos(id) {
         localStorage.setItem("favoritos", JSON.stringify(favoritos));
     }
 }
+
+// QUITA PRODUCTO DE FAVORITOS
 
 function quitarDeFavoritos(id) {
 

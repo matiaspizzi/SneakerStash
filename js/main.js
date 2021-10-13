@@ -53,7 +53,6 @@
 
 const BDD = [];
 
-
 $.getJSON("https://ron2452.github.io/SneakerStash/data/productos.json", function (productos) {
 
     productos.forEach(producto => {
@@ -64,7 +63,7 @@ $.getJSON("https://ron2452.github.io/SneakerStash/data/productos.json", function
     imprimirCards(BDD);
 });
 
-// GENERAR CARDS EN INDEX
+// MPRIME CARDS DEL PRODUCTO EN EL INDEX
 
 function imprimirCards(datos) {
 
@@ -103,8 +102,7 @@ function imprimirCards(datos) {
 
 
 
-
-function asideFiltros() {
+function filtros() {
 
     // CHECKBOXES POPULAR / NUEVO
     let BDDFilter = BDD;
@@ -177,6 +175,28 @@ function asideFiltros() {
         })
         imprimirCards(BDDOrdenado);
     }
+
+
+    // BUSCADOR DEL NAV
+
+    let BDDFound = [];
+    let productoAEncontrar = $("#buscadorIndex").val().toLowerCase();
+    
+    for(let producto of BDDFilter){
+        let nombre = producto.nombre.toLowerCase();
+        if(nombre.indexOf(productoAEncontrar) !== -1){
+
+            BDDFound.push(producto);
+            imprimirCards(BDDFound);
+        }
+    }
+    if(BDDFound.length == 0){
+
+        $("#index-section__grid").html(
+            `<div class="index__vacio">
+            <p><b>NO SE ENCONTRARON PRODUCTOS.</b></p>
+            </div>`);
+    }    
 }
 
 

@@ -339,6 +339,8 @@ aside {
         justify-content: center;
         text-align: center;
         grid-area: section;
+
+        
     
         .section__grid {
             align-content: center;
@@ -347,12 +349,26 @@ aside {
             display: grid;
             width: max-content;
             grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            grid-template-areas:    "article article article" 
-                                    "article article article" 
-                                    "article article article";
+            grid-template-rows: 1fr;
             grid-column-gap: 0.43em;
             grid-row-gap: 0.43em;
+
+            .index__vacio{
+                display: flex;
+                position: relative;
+                left: 21.25rem;
+                width: max-content;
+                background-color: white;
+                padding: 1.5625rem;
+                margin: 10rem 0 10rem 0;
+                border-radius: 5px;
+                box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);
+                height: max-content;
+    
+                p{
+                    margin: 0;
+                }
+            }
 
             .grid__article {
                 box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.26);

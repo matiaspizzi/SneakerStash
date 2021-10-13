@@ -2,7 +2,6 @@ var BDU = JSON.parse(localStorage.getItem("BaseDeUsuarios"));
 
 console.log(BDU);
 
-//Si BDU no se encuentra en el localStorage, sería = Null, por lo que se ejecuta esto:
 if (BDU == null) {
   BDU = [];
   localStorage.setItem("BaseDeUsuarios", JSON.stringify(BDU));
@@ -11,6 +10,7 @@ if (BDU == null) {
 function validarUsuario() {
   let mail = $("#usuario__email").val();
 
+  //verifica email
   if (mail != undefined && mail != "") {
     let found = BDU.find((usuario) => usuario.email == mail);
     if (found != null) {
@@ -19,12 +19,14 @@ function validarUsuario() {
         "1px solid rgb(222, 222, 222)";
 
       let contrasenia = $("#usuario__contrasenia").val();
-
+      
+      //verifica contraseña
       if (found.contrasenia == contrasenia) {
         console.log("contrasenia ok");
         document.getElementById("usuario__contrasenia").style.borderBottom =
           "1px solid rgb(222, 222, 222)";
 
+        //popup de sweetalert
         SALogin();
         return true;
       } else {

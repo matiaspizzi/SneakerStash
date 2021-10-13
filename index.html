@@ -53,7 +53,7 @@
                 </a>
             </li>
             <li class="nav__item">
-                <input type="text" name="Buscador" placeholder="Buscar" class="nav__buscador">
+                <input type="text" id="buscadorIndex" name="Buscador" onchange="filtros()" placeholder="Buscar" class="nav__buscador">
             </li>
             <li class="nav__item">
                 <a href="pages/marcas.html"><p>Marcas</p></a>
@@ -83,7 +83,7 @@
         <aside class="main__aside">
             <ul class="aside__lista">
                 <li class="aside__item">
-                    <button type="button" class="aplicar btn btn-light" onclick="asideFiltros()"><p>Aplicar Filtros</p></button>
+                    <button type="button" class="aplicar btn btn-light" onclick="filtros()"><p>Aplicar Filtros</p></button>
                 </li>
                 <ul class="lista_checkboxes">
                     <li class="form-check">

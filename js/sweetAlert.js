@@ -38,7 +38,6 @@ async function SASignup(){
 	Swal.fire({
         title: "Registro exitoso",
         icon: "success",
-
         timerProgressBar: true,
         showConfirmButton: false,
     });
@@ -49,13 +48,14 @@ async function SALogin(){
 	Swal.fire({
         title: "Inicio de sesión exitoso",
         icon: "success",
-
         timerProgressBar: true,
         showConfirmButton: false,
     });
 
 	
 }
+
+//otras propiedades:
 
 // Swal.fire({
 	// title:
