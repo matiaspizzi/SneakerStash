@@ -53,7 +53,7 @@
 
 const BDD = [];
 
-$.getJSON("https://ron2452.github.io/SneakerStash/data/productos.json", function (productos) {
+$.getJSON("https://matiaspizzi.github.io/SneakerStash/data/productos.json", function (productos) {
 
     productos.forEach(producto => {
 

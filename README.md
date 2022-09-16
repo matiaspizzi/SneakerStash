@@ -1,6 +1,6 @@
 # SneakerStash
 Proyecto final curso de JavaScript, coderhouse
 
-Página [acá](https://ron2452.github.io/SneakerStash/)
+Página [acá](https://matiaspizzi.github.io/SneakerStash/)
 
 (Sin finalizar, faltan detalles)
