@@ -1,7 +1,5 @@
 var BDU = JSON.parse(localStorage.getItem("BaseDeUsuarios"));
 
-console.log(BDU);
-
 //Si BDU no se encuentra en el localStorage, sería = Null, por lo que se ejecuta esto:
 if (BDU == null) {
     BDU = [];
@@ -118,7 +116,5 @@ function crearUsuario() {
         //popup de sweetalert
         SASignup();
 
-    } else {
-        console.log("ERROR EN REGISTRO");
     }
 }

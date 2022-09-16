@@ -6,9 +6,6 @@ if (carrito == null) {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-console.log("carrito:");
-console.log(carrito);
-
 const precios = [];
 
 // IMPRIME CARDS DEL PRODUCTO EN EL CARRITO
@@ -80,9 +77,6 @@ function agregarAlCarrito(id) {
 
     SAAgregarCarrito();
 
-    console.log("carrito:");
-    console.log(carrito);
-
     $(`#${id}`).fadeOut("normal");
     const productFoundBDD = BDD.find(producto => producto.id === id);
 
@@ -111,9 +105,6 @@ function quitarDelCarrito(id) {
     });
 
     guardarCarrito();
-
-    console.log("carrito:");
-    console.log(carrito);
 
     // Actualizar precio total
     precios[id] = 0;

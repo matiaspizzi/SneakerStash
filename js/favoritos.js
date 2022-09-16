@@ -60,9 +60,6 @@ if (favoritos == null) {
 }
 
 function agregarAfavoritos(id) {
-
-    console.log("favoritos:");
-    console.log(favoritos);
     let productFoundBDD = BDD.find(producto => producto.id === id);
 
     let productFoundFavs = favoritos.find(producto => producto.id === id);
